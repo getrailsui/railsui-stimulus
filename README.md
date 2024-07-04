@@ -33,8 +33,33 @@ npm install railsui-stimulus
 Import it in your main entrypoint file.
 
 ```javascript
-// app/javascript/application.js
-import 'railsui-stimulus'
+// Start Stimulus
+import { Application } from '@hotwired/stimulus'
+
+const application = Application.start()
+
+// Import components adhoc.
+import {
+  RailsuiClipboard,
+  RailsuiCountUp,
+  RailsuiDateRangePicker,
+  RailsuiDropdown,
+  RailsuiModal,
+  RailsuiTabs,
+  RailsuiToast,
+  RailsuiToggle,
+  RailsuiTooltip,
+} from 'railsui-stimulus'
+
+application.register('railsui-clipboard', RailsuiClipboard)
+application.register('railsui-count-up', RailsuiCountUp)
+application.register('railsui-date-range-picker', RailsuiDateRangePicker)
+application.register('railsui-dropdown', RailsuiDropdown)
+application.register('railsui-modal', RailsuiModal)
+application.register('railsui-tabs', RailsuiTabs)
+application.register('railsui-toast', RailsuiToast)
+application.register('railsui-toggle', RailsuiToggle)
+application.register('railsui-tooltip', RailsuiTooltip)
 ```
 
 ## Components
