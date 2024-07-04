@@ -21,6 +21,7 @@
     "url": "https://github.com/getrailsui/railsui-stimulus",
     "type": "git"
   },
+  "bugs": "https://github.com/getrailsui/railsui-stimulus/issues",
   "scripts": {
     "dev": "esbuild src/index.js --format=esm  --bundle --outfile=dist/railsui-stimulus.module.js --watch",
     "build": "yarn run build-esm && yarn run build-cjs",
