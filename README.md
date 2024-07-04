@@ -1,0 +1,83 @@
+# Rails UI Stimulus.js Components
+
+A suite of Stimulus.js components built with Tailwind CSS for use in [Rails UI](https://railsui.com). You can use these independent of Rails UI.
+
+[View demo]()
+
+## Pre-requsities
+
+You'll need to install and configure [Stimulus.js](https://github.com/hotwired/stimulus) in your project before using this package.
+
+## Installation
+
+Add the module `railsui-stimulus`
+
+With yarn
+
+```bash
+yarn add railsui-stimulus
+```
+
+With bun
+
+```
+bun add railsui-stimulus
+```
+
+With npm
+
+```bash
+npm install railsui-stimulus
+```
+
+Import it in your main
+
+```javascript
+// app/javascript/application.js
+import 'railsui-stimlus'
+```
+
+## Components
+
+- [Clipboard](docs/clipboard.md)
+- [Count up](docs/count_up.md)
+- [Date range picker](docs/date_range_picker.md)
+- [Dropdown](docs/dropdown.md)
+- [Modal](docs/modal.md)
+- [Tab](docs/tab.md)
+- [Toast](docs/toast.md)
+- [Toggle](docs/toggle.md)
+- [Tooltip](docs/tooltip.md)
+
+## Styles
+
+The examples provided come from some of the UI from Rails UI. You'll want to tweak this to match your needs or go checkout [Rails UI](https://railsui.com) for drop-in UI for your next Ruby on Rails application.
+
+## Extending
+
+With Stimulus, you can inherit one component from another. Inherited controllers automatically access the targets defined by their parent class.
+
+If you override the `connect`, `disconnect`, or any other methods from the parent, call `super.method()` so the parent’s functionality is properly executed.
+
+```javascript
+import { RailsuiToggle } from 'railsui-stimulus'
+
+export default class CheckboxToggle extends RailsuiToggle {
+  connect() {
+    super.connect()
+    console.log('toggleable', this.toggleableTarget)
+  }
+}
+```
+
+## Bugs/Contributing
+
+Run `npx serve` locally to preview all components.
+
+Bug reports and pull requests are welcome! Head to [https://github.com/getrailsui/railsui-stimulus](https://github.com/getrailsui/railsui-stimulus).
+
+## Build Ruby on Rails apps faster than ever
+
+[Rails UI](https://railsui.com) gives Rails developers instance access to professionally designed templates and components.
+
+Leverage breath-taking UI to fast-track your next idea.

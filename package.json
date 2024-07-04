@@ -1,0 +1,45 @@
+{
+  "name": "railsui-stimulus",
+  "version": "1.0.0",
+  "description": "Rails UI Stimulus.js Components",
+  "main": "./dist/railsui-stimulus.cjs",
+  "module": "./dist/railsui-stimulus.module.js",
+  "author": "Andy Leverenz <andy@justalever.com>",
+  "homepage": "https://railsui.com",
+  "keywords": [
+    "stimulus",
+    "stimulusjs",
+    "tailwindcss",
+    "railsui",
+    "ui"
+  ],
+  "browserslist": [
+    "defaults",
+    "not IE 11"
+  ],
+  "repository": {
+    "url": "https://github.com/getrailsui/railsui-stimulus",
+    "type": "git"
+  },
+  "scripts": {
+    "dev": "esbuild src/index.js --format=esm  --bundle --outfile=dist/railsui-stimulus.module.js --watch",
+    "build": "yarn run build-esm && yarn run build-cjs",
+    "build-cjs": "esbuild src/index.js --format=cjs --target=es2020 --minify --bundle --sourcemap=external --external:@hotwired/stimulus --outfile=dist/railsui-stimulus.cjs",
+    "build-esm": "esbuild src/index.js --format=esm --target=es2020 --minify --bundle --sourcemap=external --external:@hotwired/stimulus --outfile=dist/railsui-stimulus.module.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "esbuild": "^0.20.0",
+    "flatpickr": "4.6.13",
+    "hotkeys-js": "^3.13.7",
+    "stimulus-use": "^0.52.2",
+    "tippy.js": "^6.3.7"
+  },
+  "peerDependencies": {
+    "@hotwired/stimulus": ">= 3.0.0",
+    "flatpickr": "4.6.13",
+    "stimulus-use": "0.52.2",
+    "tippy.js": "6.3.7"
+  }
+}
