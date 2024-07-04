@@ -30,11 +30,11 @@ With npm
 npm install railsui-stimulus
 ```
 
-Import it in your main
+Import it in your main entrypoint file.
 
 ```javascript
 // app/javascript/application.js
-import 'railsui-stimlus'
+import 'railsui-stimulus'
 ```
 
 ## Components
