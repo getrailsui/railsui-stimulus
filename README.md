@@ -2,7 +2,7 @@
 
 A suite of Stimulus.js components built with Tailwind CSS for use in [Rails UI](https://railsui.com). You can use these independent of Rails UI.
 
-[View demo]()
+[View demo](https://getrailsui.github.io/railsui-stimulus/)
 
 ## Pre-requsities
 
