@@ -1,3 +1,6 @@
+
+![railsui-stimulus-github](https://github.com/user-attachments/assets/904b524d-269e-451e-9704-8a8c0ab5fb92)
+
 # Rails UI Stimulus.js Components
 
 A suite of Stimulus.js components built with Tailwind CSS for use in [Rails UI](https://railsui.com). You can use these independent of Rails UI.
