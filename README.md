@@ -1,5 +1,6 @@
 
-![railsui-stimulus-github](https://github.com/user-attachments/assets/904b524d-269e-451e-9704-8a8c0ab5fb92)
+![railsui-stimulus-github](https://github.com/user-attachments/assets/eae7a2d1-ac91-4207-aca0-5ce3dea0fc15)
+
 
 # Rails UI Stimulus.js Components
 
