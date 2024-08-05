@@ -7,9 +7,9 @@ const oneWeekLater = new Date(currentDate.getTime() + 7 * 24 * 60 * 60 * 1000)
 export default class extends Controller {
   static targets = ['label', 'input']
   static values = {
-    mode: String || 'range',
-    minDate: String || 'today',
-    dateFormat: String || 'Y-m-d',
+    mode: { type: String, default: 'range' },
+    minDate: { type: String, default: 'today' },
+    dateFormat: { type: String, default: 'Y-m-d' },
     range: {
       type: Array,
       default: [currentDate, oneWeekLater],
