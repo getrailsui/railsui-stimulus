@@ -16,20 +16,6 @@ You'll need to install and configure [Stimulus.js](https://github.com/hotwired/s
 
 Add the module `railsui-stimulus`
 
-With yarn
-
-```bash
-yarn add railsui-stimulus
-```
-
-With bun
-
-```
-bun add railsui-stimulus
-```
-
-With npm
-
 ```bash
 npm install railsui-stimulus
 ```
