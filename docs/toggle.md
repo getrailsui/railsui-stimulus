@@ -36,7 +36,3 @@ application.register('railsui-toggle', RailsuiToggle)
   </div>
 </div>
 ```
-
-### Options
-
-- `triggerOnLoad`: Make the toast notification appear as soon as initialized. Defaults to `false`
