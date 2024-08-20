@@ -4,7 +4,7 @@
 
 # Rails UI Stimulus.js Components
 
-A suite of Stimulus.js components built with Tailwind CSS for use in [Rails UI](https://railsui.com). You can use these independent of Rails UI.
+A suite of Stimulus.js components built with Tailwind CSS for use in [Rails UI](https://railsui.com). You can use these independently of Rails UI.
 
 [View demo](https://getrailsui.github.io/railsui-stimulus/)
 
@@ -66,7 +66,7 @@ application.register('railsui-tooltip', RailsuiTooltip)
 
 ## Styles
 
-The examples provided come from some of the UI from Rails UI. You'll want to tweak this to match your needs or go checkout [Rails UI](https://railsui.com) for drop-in UI for your next Ruby on Rails application.
+The examples provided come from some of the UI from Rails UI. You'll want to tweak this to match your needs, or go check out [Rails UI](https://railsui.com) for drop-in UI for your next Ruby on Rails application.
 
 ## Extending
 
@@ -95,4 +95,4 @@ Bug reports and pull requests are welcome! Head to [https://github.com/getrailsu
 
 [Rails UI](https://railsui.com) gives Rails developers instance access to professionally designed templates and components.
 
-Leverage breath-taking UI to fast-track your next idea.
+Leverage breathtaking UI to fast-track your next idea.
