@@ -1,6 +1,4 @@
-
 ![railsui-stimulus-github](https://github.com/user-attachments/assets/eae7a2d1-ac91-4207-aca0-5ce3dea0fc15)
-
 
 # Rails UI Stimulus.js Components
 
@@ -35,6 +33,7 @@ import {
   RailsuiDateRangePicker,
   RailsuiDropdown,
   RailsuiModal,
+  RailsuiSelectAll,
   RailsuiTabs,
   RailsuiToast,
   RailsuiToggle,
@@ -46,6 +45,7 @@ application.register('railsui-count-up', RailsuiCountUp)
 application.register('railsui-date-range-picker', RailsuiDateRangePicker)
 application.register('railsui-dropdown', RailsuiDropdown)
 application.register('railsui-modal', RailsuiModal)
+application.register('railsui-select-all', RailsuiSelectAll)
 application.register('railsui-tabs', RailsuiTabs)
 application.register('railsui-toast', RailsuiToast)
 application.register('railsui-toggle', RailsuiToggle)
@@ -59,6 +59,7 @@ application.register('railsui-tooltip', RailsuiTooltip)
 - [Date range picker](docs/date_range_picker.md)
 - [Dropdown](docs/dropdown.md)
 - [Modal](docs/modal.md)
+- [Select all](docs/select_all.md)
 - [Tab](docs/tab.md)
 - [Toast](docs/toast.md)
 - [Toggle](docs/toggle.md)
