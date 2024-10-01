@@ -24,7 +24,7 @@
   "bugs": "https://github.com/getrailsui/railsui-stimulus/issues",
   "scripts": {
     "dev": "esbuild src/index.js --format=esm  --bundle --outfile=dist/railsui-stimulus.module.js --watch",
-    "build": "yarn run build-esm && yarn run build-cjs",
+    "build": "bun run build-esm && bun run build-cjs",
     "build-cjs": "esbuild src/index.js --format=cjs --target=es2020 --minify --bundle --sourcemap=external --external:@hotwired/stimulus --outfile=dist/railsui-stimulus.cjs",
     "build-esm": "esbuild src/index.js --format=esm --target=es2020 --minify --bundle --sourcemap=external --external:@hotwired/stimulus --outfile=dist/railsui-stimulus.module.js"
   },
