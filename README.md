@@ -33,6 +33,7 @@ import {
   RailsuiDateRangePicker,
   RailsuiDropdown,
   RailsuiModal,
+  RailsuiRange,
   RailsuiSelectAll,
   RailsuiTabs,
   RailsuiToast,
@@ -45,6 +46,7 @@ application.register('railsui-count-up', RailsuiCountUp)
 application.register('railsui-date-range-picker', RailsuiDateRangePicker)
 application.register('railsui-dropdown', RailsuiDropdown)
 application.register('railsui-modal', RailsuiModal)
+application.register('railsui-range', RailsuiRange)
 application.register('railsui-select-all', RailsuiSelectAll)
 application.register('railsui-tabs', RailsuiTabs)
 application.register('railsui-toast', RailsuiToast)
