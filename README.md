@@ -18,6 +18,14 @@ Add the module `railsui-stimulus`
 npm install railsui-stimulus
 ```
 
+```bash
+yarn add railsui-stimulus
+```
+
+```bash
+bun add railsui-stimulus
+```
+
 Import it in your main entrypoint file.
 
 ```javascript
@@ -34,6 +42,7 @@ import {
   RailsuiDropdown,
   RailsuiModal,
   RailsuiRange,
+  RailsuiReadMore,
   RailsuiSelectAll,
   RailsuiTabs,
   RailsuiToast,
@@ -47,6 +56,7 @@ application.register('railsui-date-range-picker', RailsuiDateRangePicker)
 application.register('railsui-dropdown', RailsuiDropdown)
 application.register('railsui-modal', RailsuiModal)
 application.register('railsui-range', RailsuiRange)
+application.register('railsui-read-more', RailsuiReadMore)
 application.register('railsui-select-all', RailsuiSelectAll)
 application.register('railsui-tabs', RailsuiTabs)
 application.register('railsui-toast', RailsuiToast)

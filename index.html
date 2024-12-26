@@ -30,7 +30,7 @@
 
   <script type="module">
     import { Application } from "@hotwired/stimulus"
-    import { RailsuiClipboard, RailsuiCountUp, RailsuiDateRangePicker, RailsuiDropdown, RailsuiModal, RailsuiRange, RailsuiSelectAll, RailsuiTabs, RailsuiToast, RailsuiToggle, RailsuiTooltip } from "railsui-stimulus";
+    import { RailsuiClipboard, RailsuiCountUp, RailsuiDateRangePicker, RailsuiDropdown, RailsuiModal, RailsuiRange, RailsuiReadMore, RailsuiSelectAll, RailsuiTabs, RailsuiToast, RailsuiToggle, RailsuiTooltip } from "railsui-stimulus";
 
     (() => {
       const application = Application.start()
@@ -40,12 +40,12 @@
       application.register('railsui-dropdown', RailsuiDropdown)
       application.register('railsui-modal', RailsuiModal)
       application.register('railsui-range', RailsuiRange)
+      application.register('railsui-read-more', RailsuiReadMore)
       application.register('railsui-select-all', RailsuiSelectAll)
       application.register('railsui-tabs', RailsuiTabs)
       application.register('railsui-toast', RailsuiToast)
       application.register('railsui-toggle', RailsuiToggle)
       application.register('railsui-tooltip', RailsuiTooltip)
-
     })()
   </script>
 </head>
@@ -141,6 +141,10 @@
           <li>
             <a href="#range"
               class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block w-full">Range slider</a>
+          </li>
+          <li>
+            <a href="#read_more"
+              class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block w-full">Read more</a>
           </li>
           <li>
             <a href="#select_all"
@@ -364,6 +368,7 @@ data-date-range-picker-date-min-date-value=&quot;&lt;%= Date.today.year - 1 %&gt
         </div>
       </div>
 
+      <!-- Range Slider -->
       <div id="range" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
         <div class="prose mb-6 prose-neutral max-w-full">
           <h2 class="text-2xl text-neutral-800 font-semibold mb-4">Range slider</h2>
@@ -474,6 +479,29 @@ data-date-range-picker-date-min-date-value=&quot;&lt;%= Date.today.year - 1 %&gt
           <label for="volume" class="text-sm font-medium mb-1 block">Volume</label>
           <input type="range" id="volume" class="form-input-range" data-railsui-range-target="range"
             data-action="input->railsui-range#onInput" min="2" max="100" value="25" />
+        </div>
+      </div>
+
+      <!-- Read more -->
+      <div id="read_more" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
+        <div class="prose prose-neutral mb-6">
+          <h2>Read more</h2>
+        </div>
+
+        <div class="prose prose-gray dark:prose-invert mb-4" data-controller="railsui-read-more"
+          data-railsui-read-more-more-text-value="Read more" data-railsui-read-more-less-text-value="Read less"
+          data-railsui-read-more-max-length-value="150">
+          <p>
+            <span data-railsui-read-more-target="content">In this chat, we discuss our experiences and insights from the
+              creative writing course. We share our thoughts on various writing prompts, exchange feedback on our
+              stories, and encourage each other to explore new ideas and styles. Whether you're a beginner or an
+              experienced writer, this space is dedicated to fostering creativity and collaboration among aspiring
+              authors.</span>
+            <button data-railsui-read-more-target="button" data-action="railsui-read-more#toggle"
+              class="font-medium underline">
+              Read more
+            </button>
+          </p>
         </div>
       </div>
 
