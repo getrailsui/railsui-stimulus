@@ -12,9 +12,9 @@ application.register('railsui-read-more', RailsuiReadMore)
 ### Example
 
 ```html
-<div class="prose prose-gray dark:prose-invert mb-4" data-controller="read-more">
+<div class="prose prose-gray dark:prose-invert mb-4" data-controller="railsui-read-more">
   <p>
-    <span data-read-more-target="content"
+    <span data-railsui-read-more-target="content"
       >In this chat, we discuss our experiences and insights from the creative writing course. We
       share our thoughts on various writing prompts, exchange feedback on our stories, and encourage
       each other to explore new ideas and styles. Whether you're a beginner or an experienced
@@ -22,8 +22,8 @@ application.register('railsui-read-more', RailsuiReadMore)
       authors.</span
     >
     <button
-      data-read-more-target="button"
-      data-action="read-more#toggle"
+      data-railsui-read-more-target="button"
+      data-action="railsui-read-more#toggle"
       class="font-medium underline"
     >
       Read more
