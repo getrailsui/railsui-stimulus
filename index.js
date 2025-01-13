@@ -1,4 +1,5 @@
 export { default as RailsuiClipboard } from './railsui_clipboard'
+export { default as RailsuiCombobox } from './railsui_combobox'
 export { default as RailsuiCountUp } from './railsui_count_up'
 export { default as RailsuiDateRangePicker } from './railsui_date_range_picker'
 export { default as RailsuiDropdown } from './railsui_dropdown'
