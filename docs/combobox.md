@@ -78,120 +78,119 @@ application.register('railsui-combobox', RailsuiCombobox)
       </svg>
     </div>
 
-    <!-- combobox dropdown -->
-    <div
-      data-railsui-combobox-target="list"
-      data-transition-enter-from="opacity-0 scale-95"
-      data-transition-enter-to="opacity-100 scale-100"
-      data-transition-leave-from="opacity-100 scale-100"
-      data-transition-leave-to="opacity-0 scale-95"
-      data-action="keydown.esc->railsui-combobox#hideDropdown"
-      class="absolute z-10 w-full mt-1 bg-white border rounded shadow-lg max-h-50 rounded-md overflow-y-auto  transition ease-in-out duration-200 origin-top hidden"
-      role="listbox"
-      aria-labelledby="combobox-label">
+  <!-- combobox dropdown -->
+  <div
+    data-railsui-combobox-target="list"
+    data-transition-enter-from="opacity-0 scale-95"
+    data-transition-enter-to="opacity-100 scale-100"
+    data-transition-leave-from="opacity-100 scale-100"
+    data-transition-leave-to="opacity-0 scale-95"
+    data-action="keydown.esc->railsui-combobox#hideDropdown"
+    class="absolute z-10 w-full mt-1 bg-white border rounded shadow-lg max-h-50 rounded-md overflow-y-auto  transition ease-in-out duration-200 origin-top hidden"
+    role="listbox"
+    aria-labelledby="combobox-label">
 
-      <!-- Search input inside dropdown -->
-      <div class="p-2">
-        <label for="combobox-search" class="sr-only">Search</label>
-        <div class="relative">
-          <input
-            id="combobox-search"
-            type="text"
-            placeholder="Search..."
-            autocomplete="off"
-            aria-autocomplete="list"
-            data-railsui-combobox-target="input"
-            data-action="input->railsui-combobox#filter keydown->railsui-combobox#handleKeydown"
-            class="rounded-md pr-3 pl-8 py-1.5 border border-gray-400/40 bg-white focus:border-gray-400/80 focus:ring-4 focus:ring-gray-400/10 focus:shadow-none focus:outline-none placeholder-gray-600/80 font-normal antialiased font-sans w-full shadow-gray-200/30 shadow-sm">
-          <svg
-            class="stroke-gray-400 size-4 absolute top-3 left-3"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24">
-            <title>magnifying-glass</title>
+    <!-- Search input inside dropdown -->
+    <div class="p-2">
+      <label for="combobox-search" class="sr-only">Search</label>
+      <div class="relative">
+        <input
+          id="combobox-search"
+          type="text"
+          placeholder="Search..."
+          autocomplete="off"
+          aria-autocomplete="list"
+          data-railsui-combobox-target="input"
+          data-action="input->railsui-combobox#filter keydown->railsui-combobox#handleKeydown"
+          class="rounded-md pr-3 pl-8 py-1.5 border border-gray-400/40 bg-white focus:border-gray-400/80 focus:ring-4 focus:ring-gray-400/10 focus:shadow-none focus:outline-none placeholder-gray-600/80 font-normal antialiased font-sans w-full shadow-gray-200/30 shadow-sm">
+        <svg
+          class="stroke-gray-400 size-4 absolute top-3 left-3"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24">
+          <title>magnifying-glass</title>
+          <g fill="none">
+            <path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- List of options -->
+    <ul role="presentation">
+      <li
+        id="option-1"
+        aria-selected="false"
+        data-action="click->railsui-combobox#selectOption keydown.enter->railsui-combobox#selectOption"
+        data-railsui-combobox-target="option"
+        data-value="Option 1"
+        class="px-4 py-2 cursor-pointer flex items-center justify-between" role="option"
+        tabindex="0"
+        >
+        Option 1
+
+        <span data-railsui-combobox-target="checkmark" class="hidden" aria-hidden="true">
+          <svg class="stroke-current text-blue-900 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+            height="24" viewBox="0 0 24 24">
             <g fill="none">
-              <path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M4.5 12.75l6 6 9-13.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              </path>
             </g>
           </svg>
-        </div>
-      </div>
+        </span>
+      </li>
+      <li
+        id="option-2"
+        aria-selected="false"
+        data-action="click->railsui-combobox#selectOption keydown.enter->railsui-combobox#selectOption"
+        data-value="Option 2"
+        data-railsui-combobox-target="option"
+        class="px-4 py-2 cursor-pointer flex items-center justify-between" role="option"
+        tabindex="0">
+        Option 2
 
-      <!-- List of options -->
-      <ul role="presentation">
-        <li
-          id="option-1"
-          aria-selected="false"
-          data-action="click->railsui-combobox#selectOption keydown.enter->railsui-combobox#selectOption"
-          data-railsui-combobox-target="option"
-          data-value="Option 1"
-          class="px-4 py-2 cursor-pointer flex items-center justify-between" role="option"
-          tabindex="0"
-          >
-          Option 1
+        <span data-railsui-combobox-target="checkmark" class="hidden" aria-hidden="true">
+          <svg class="stroke-current text-blue-900 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+            height="24" viewBox="0 0 24 24">
+            <g fill="none">
+              <path d="M4.5 12.75l6 6 9-13.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              </path>
+            </g>
+          </svg>
+        </span>
+      </li>
+      <li
+        id="option-3"
+        aria-selected="false"
+        data-action="click->railsui-combobox#selectOption keydown.enter->railsui-combobox#selectOption"
+        data-railsui-combobox-target="option"
+        data-value="Option 3"
+        class="px-4 py-2 cursor-pointer flex items-center justify-between"
+        tabindex="0"
+        role="option"
+        >
+        Option 3
 
-          <span data-railsui-combobox-target="checkmark" class="hidden" aria-hidden="true">
-            <svg class="stroke-current text-blue-900 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
-              height="24" viewBox="0 0 24 24">
-              <g fill="none">
-                <path d="M4.5 12.75l6 6 9-13.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                </path>
-              </g>
-            </svg>
-          </span>
-        </li>
-        <li
-          id="option-2"
-          aria-selected="false"
-          data-action="click->railsui-combobox#selectOption keydown.enter->railsui-combobox#selectOption">
-          data-value="Option 2"
-          data-railsui-combobox-target="option"
-          class="px-4 py-2 cursor-pointer flex items-center justify-between" role="option"
-          tabindex="0">
-          Option 2
+        <span data-railsui-combobox-target="checkmark" class="hidden" aria-hidden="true">
+          <svg class="stroke-current text-blue-900 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+            height="24" viewBox="0 0 24 24">
 
-          <span data-railsui-combobox-target="checkmark" class="hidden" aria-hidden="true">
-            <svg class="stroke-current text-blue-900 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
-              height="24" viewBox="0 0 24 24">
-              <g fill="none">
-                <path d="M4.5 12.75l6 6 9-13.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                </path>
-              </g>
-            </svg>
-          </span>
-        </li>
-        <li
-          id="option-3"
-          aria-selected="false"
-          data-action="click->railsui-combobox#selectOption keydown.enter->railsui-combobox#selectOption"
-          data-railsui-combobox-target="option"
-          data-value="Option 3"
-          class="px-4 py-2 cursor-pointer flex items-center justify-between"
-          tabindex="0"
-          role="option"
-          >
-          Option 3
+            <g fill="none">
+              <path d="M4.5 12.75l6 6 9-13.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              </path>
+            </g>
+          </svg>
+        </span>
+      </li>
+    </ul>
 
-          <span data-railsui-combobox-target="checkmark" class="hidden" aria-hidden="true">
-            <svg class="stroke-current text-blue-900 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
-              height="24" viewBox="0 0 24 24">
-
-              <g fill="none">
-                <path d="M4.5 12.75l6 6 9-13.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                </path>
-              </g>
-            </svg>
-          </span>
-        </li>
-      </ul>
-
-      <!-- No results message -->
-      <div
-        data-railsui-combobox-target="noresults"
-        class="hidden px-4 py-2 text-gray-500"
-        aria-hidden="true">
-        No results found
-      </div>
+    <!-- No results message -->
+    <div
+      data-railsui-combobox-target="noresults"
+      class="hidden px-4 py-2 text-gray-500"
+      aria-hidden="true">
+      No results found
     </div>
   </div>
 </div>
