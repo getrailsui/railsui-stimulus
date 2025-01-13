@@ -38,6 +38,7 @@ const application = Application.start()
 import {
   RailsuiClipboard,
   RailsuiCountUp,
+  RailsuiCombobox,
   RailsuiDateRangePicker,
   RailsuiDropdown,
   RailsuiModal,
@@ -52,6 +53,7 @@ import {
 
 application.register('railsui-clipboard', RailsuiClipboard)
 application.register('railsui-count-up', RailsuiCountUp)
+application.register('railsui-combobox', RailsuiCombobox)
 application.register('railsui-date-range-picker', RailsuiDateRangePicker)
 application.register('railsui-dropdown', RailsuiDropdown)
 application.register('railsui-modal', RailsuiModal)
@@ -68,6 +70,7 @@ application.register('railsui-tooltip', RailsuiTooltip)
 
 - [Clipboard](docs/clipboard.md)
 - [Count up](docs/count_up.md)
+- [Combobox](docs/combobox.md)
 - [Date range picker](docs/date_range_picker.md)
 - [Dropdown](docs/dropdown.md)
 - [Modal](docs/modal.md)
