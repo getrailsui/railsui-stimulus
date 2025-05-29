@@ -1,10 +1,29 @@
+# Dropdown
+
+Accessible, animated dropdowns powered by [Stimulus](https://stimulus.hotwired.dev/) and [stimulus-use](https://github.com/stimulus-use/stimulus-use). Bring your own Tailwind styles and we'll handle the behavior.
+
+## 💡 Features
+
+- Smooth transition animations (via stimulus-use)
+- Closes on outside click
+- Closes on Escape key
+- Automatically handles aria-expanded / aria-hidden for accessibility
+- Fully styleable with Tailwind CSS
+
+
+## Usage
+
+```javascript
+import { RailsuiDropdown } from 'railsui-stimulus'
+application.register('railsui-dropdown', RailsuiDropdown)
+```
+
+
+```html
 <div data-controller="railsui-dropdown" class="relative md:inline-block block md:w-auto w-full">
   <button
     type="button"
     data-action="click->railsui-dropdown#toggle click@window->railsui-dropdown#hide"
-    data-railsui-dropdown-target="trigger"
-    aria-haspopup="true"
-    aria-expanded="false"
     class="py-2 px-3 font-medium text-sm text-center rounded-md focus:ring-4 transition ease-in-out duration-300 no-underline inline-flex items-center justify-center bg-white hover:bg-white text-neutral-700 focus:ring-neutral-100 border border-neutral-300 shadow-sm hover:border-neutral-400 shadow-neutral-300/20 hover:shadow-neutral-300/50 dark:shadow-none dark:bg-neutral-800/70 dark:text-neutral-200 dark:border-neutral-700 dark:focus:ring-neutral-600/30 dark:hover:border-neutral-600 dark:hover:bg-neutral-800 gap-2"
   >
     Dropdown
@@ -30,7 +49,6 @@
   <div
     class="hidden transition transform origin-top-left absolute left-0 top-11 bg-white rounded-lg shadow-xl shadow-neutral-900/10 border border-neutral-200 md:w-[200px] w-full z-50 py-2 dark:bg-neutral-700 dark:shadow-neutral-900/50 dark:border-neutral-500/60 md:text-sm text-base font-medium text-neutral-600 dark:text-neutral-200"
     data-railsui-dropdown-target="menu"
-    aria-hidden="true"
     data-transition-enter-from="opacity-0 scale-95"
     data-transition-enter-to="opacity-100 scale-100"
     data-transition-leave-from="opacity-100 scale-100"
@@ -47,3 +65,4 @@
     </div>
   </div>
 </div>
+```
