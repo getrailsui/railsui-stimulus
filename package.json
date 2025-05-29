@@ -1,6 +1,6 @@
 {
   "name": "railsui-stimulus",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Rails UI Stimulus.js Components",
   "main": "./dist/railsui-stimulus.cjs",
   "module": "./dist/railsui-stimulus.module.js",

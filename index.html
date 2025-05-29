@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rails UI Stimulus.js Components</title>
-  <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/airbnb.css">
-  <link rel="stylesheet" type="text/css" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.css">
-  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rails UI Stimulus.js Components</title>
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/airbnb.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.css">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
-  <script>
-    window.esmsInitOptions = { enable: ['css-modules', 'json-modules'] }
-  </script>
-  <script async src="https://unpkg.com/es-module-shims/dist/es-module-shims.js"></script>
+    <script>
+      window.esmsInitOptions = { enable: ['css-modules', 'json-modules'] }
+    </script>
+    <script async src="https://unpkg.com/es-module-shims/dist/es-module-shims.js"></script>
 
-  <script>hljs.highlightAll();</script>
+    <script>hljs.highlightAll();</script>
 
-  <script type="importmap">
+    <script type="importmap">
       {
         "imports": {
           "@hotwired/stimulus": "https://unpkg.com/@hotwired/stimulus/dist/stimulus.js",
@@ -28,871 +28,791 @@
       }
     </script>
 
-  <script type="module">
-    import { Application } from "@hotwired/stimulus"
-    import { RailsuiClipboard, RailsuiCountUp, RailsuiCombobox, RailsuiDateRangePicker, RailsuiDropdown, RailsuiModal, RailsuiRange, RailsuiReadMore, RailsuiSelectAll, RailsuiTabs, RailsuiToast, RailsuiToggle, RailsuiTooltip } from "railsui-stimulus";
+    <script type="module">
+      import { Application } from "@hotwired/stimulus"
+      import { RailsuiClipboard, RailsuiCountUp, RailsuiCombobox, RailsuiDateRangePicker, RailsuiDropdown, RailsuiModal, RailsuiPasswordToggle, RailsuiRange, RailsuiReadMore, RailsuiSelectAll, RailsuiTabs, RailsuiToast, RailsuiToggle, RailsuiTooltip } from "railsui-stimulus";
 
-    (() => {
-      const application = Application.start()
-      application.register('railsui-clipboard', RailsuiClipboard)
-      application.register('railsui-count-up', RailsuiCountUp)
-      application.register('railsui-combobox', RailsuiCombobox)
-      application.register('railsui-date-range-picker', RailsuiDateRangePicker)
-      application.register('railsui-dropdown', RailsuiDropdown)
-      application.register('railsui-modal', RailsuiModal)
-      application.register('railsui-range', RailsuiRange)
-      application.register('railsui-read-more', RailsuiReadMore)
-      application.register('railsui-select-all', RailsuiSelectAll)
-      application.register('railsui-tabs', RailsuiTabs)
-      application.register('railsui-toast', RailsuiToast)
-      application.register('railsui-toggle', RailsuiToggle)
-      application.register('railsui-tooltip', RailsuiTooltip)
-    })()
-  </script>
-</head>
+      (() => {
+        const application = Application.start()
+        application.register('railsui-clipboard', RailsuiClipboard)
+        application.register('railsui-count-up', RailsuiCountUp)
+        application.register('railsui-combobox', RailsuiCombobox)
+        application.register('railsui-date-range-picker', RailsuiDateRangePicker)
+        application.register('railsui-dropdown', RailsuiDropdown)
+        application.register('railsui-modal', RailsuiModal)
+        application.register('railsui-password-toggle', RailsuiPasswordToggle)
+        application.register('railsui-range', RailsuiRange)
+        application.register('railsui-read-more', RailsuiReadMore)
+        application.register('railsui-select-all', RailsuiSelectAll)
+        application.register('railsui-tabs', RailsuiTabs)
+        application.register('railsui-toast', RailsuiToast)
+        application.register('railsui-toggle', RailsuiToggle)
+        application.register('railsui-tooltip', RailsuiTooltip)
+      })()
+    </script>
+  </head>
 
-<body class="antialiased font-sans text-neutral-800 bg-neutral-50/50">
-  <div class="max-w-6xl mx-auto p-6">
+  <body class="antialiased font-sans text-neutral-800 bg-neutral-50/50">
+    <div class="max-w-6xl mx-auto p-6">
 
-    <div class="flex justify-end">
-      <a href="https://github.com/getrailsui/railsui-stimulus" target="_blank">
-        <svg class="fill-current text-neutral-900" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-          viewBox="0 0 24 24">
-          <title>github</title>
-          <path
-            d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12">
-          </path>
-        </svg>
-      </a>
-    </div>
-
-    <div class="flex justify-center flex-wrap gap-4">
-      <div class="flex items-center gap-2">
-        <a href="https://railsui.com?ref=github.com" target="_blank">
-          <svg class="fill-current w-32 h-auto" width="519" height="152" viewBox="0 0 519 152" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M143.867 132.581L141.376 130.101L136.809 133.614C132.242 129.275 128.713 123.077 126.014 115.227C122.277 104.278 119.371 97.0468 117.295 93.5344C112.105 85.0642 104.423 77.8334 93.8354 71.4291L122.9 50.7698L112.312 36.3086C104.838 26.1856 98.8179 18.1285 94.4584 12.5505L57.5055 36.9284C56.052 22.8801 47.3329 13.3769 33.4237 13.3769C23.8741 13.3769 14.9472 16.8889 6.85081 23.7065V26.3922C12.4561 24.946 16.8157 24.1197 20.1373 24.1197C31.7629 24.1197 37.3681 30.524 37.1605 43.3327L36.9529 52.2163L3.32161 77.2139C26.1577 88.3696 37.5757 102.831 37.5757 120.598C22.2133 125.35 9.75724 134.027 0 146.835L0.207601 147.868C16.1928 141.877 29.4793 138.985 40.4822 138.985C43.1809 138.985 45.8798 139.191 48.1634 139.398C53.7685 140.018 59.789 141.877 65.8096 145.183C68.0931 146.422 71.8297 148.695 77.4352 152L98.6104 130.721L95.9114 128.035L91.5518 131.961C85.5313 128.449 79.0957 125.556 72.4527 123.284V87.5436C82.0023 87.5436 89.6833 91.6754 95.2889 100.146C97.3649 103.245 101.309 112.128 107.329 126.796C112.105 138.571 117.295 146.422 122.9 150.76H124.976L143.867 132.581ZM102.347 60.2735L72.4527 82.1718V31.9702L78.8882 27.6317L102.347 60.2735ZM68.0931 121.837C65.1866 121.011 62.0726 120.598 58.751 120.598V41.4734L68.0931 35.2756V121.837ZM36.7453 80.5193L21.1753 68.1237L36.7453 57.7941V80.5193Z" />
-            <path
-              d="M219.594 134.233L217.311 132.374L213.574 134.233C210.875 133.407 208.799 131.341 207.761 127.829V73.7015C209.214 68.1237 211.498 62.9588 214.82 57.794L214.404 56.9676L208.592 61.5129L179.113 51.8027C172.677 57.794 165.411 60.4799 157.729 59.86L155.031 59.6535L164.995 85.4776C151.294 97.6662 144.443 110.062 144.443 122.87C144.443 131.341 149.425 140.224 159.183 149.314H160.221L188.455 126.796C188.455 136.919 192.814 144.356 201.741 149.108L219.594 134.233ZM188.455 95.3938L167.071 85.0641L158.352 61.5129L188.455 72.6685V95.3938ZM188.662 121.424L173.092 134.646C164.995 126.589 161.051 117.912 161.051 108.616C161.051 102.212 163.127 95.3938 167.071 88.3695L188.662 99.1126V121.424Z" />
-            <path
-              d="M253.326 21.6406H237.964L232.982 42.713H235.68L253.326 21.6406ZM258.724 134.233L256.648 132.374L252.911 134.853C249.59 133.2 247.721 130.928 247.098 128.242V71.0162L252.288 65.2314L236.303 52.0098L220.941 64.6119L226.961 71.0162V124.936L226.754 128.655C226.131 137.538 230.491 144.563 239.832 149.521L258.724 134.233Z" />
-            <path
-              d="M309.559 132.994L307.068 130.308L302.085 134.027L286.93 124.523V37.5482C286.93 29.9043 290.252 23.7065 297.102 18.7483C289.421 19.7813 282.155 23.2933 275.72 29.2845L273.436 29.4911C269.492 26.3922 264.925 24.1197 259.735 22.8801C264.302 27.6317 266.585 31.9702 266.585 36.102V118.532C266.585 124.523 264.717 129.482 261.188 133.407C274.266 138.158 284.024 143.323 290.667 149.108L309.559 132.994Z" />
-            <path
-              d="M385.458 46.638C385.458 41.4735 383.382 38.9944 379.23 38.9944C375.908 38.9944 374.247 40.0273 374.247 42.2998L375.285 44.1592C378.399 48.0845 379.853 50.5634 379.853 52.0098C379.853 55.9347 375.908 59.2406 371.964 59.2406L366.566 59.8601C360.131 59.8601 351.411 56.9677 339.993 51.3899C332.312 58.6206 323.8 64.4049 314.458 68.5368V100.352L334.388 111.301L309.684 146.422L312.382 148.282C319.648 145.183 326.499 143.53 333.35 143.53C340.201 143.53 347.259 145.389 354.318 148.901C360.131 144.976 364.283 142.497 366.566 141.051C370.926 138.365 375.493 136.299 380.06 134.853V96.8403L360.546 84.8577L379.437 59.4471C383.382 54.0758 385.458 49.7369 385.458 46.638ZM365.321 71.2227L345.183 97.6663L332.727 91.262L332.935 67.5038C340.616 70.6027 347.467 72.0492 353.695 72.0492C358.055 72.0492 361.999 71.8427 365.321 71.2227ZM362.829 105.724L362.622 133.2C354.941 129.482 347.467 127.622 340.201 127.622C335.011 127.622 330.444 128.035 326.707 128.862L349.75 99.1127L362.829 105.724Z" />
-            <path fill-rule="evenodd" clip-rule="evenodd"
-              d="M437.908 9.68399H486.564C499.107 9.68399 509.27 19.8006 509.27 32.28V83.9281C509.27 96.4076 499.107 106.524 486.564 106.524H437.908C425.368 106.524 415.202 96.4076 415.202 83.9281V32.28C415.202 19.8006 425.368 9.68399 437.908 9.68399ZM405.471 32.28C405.471 14.4522 419.993 0 437.908 0H486.564C504.479 0 519 14.4522 519 32.28V83.9281C519 101.756 504.479 116.208 486.564 116.208H437.908C419.993 116.208 405.471 101.756 405.471 83.9281V32.28ZM461.838 66.3149V36.3504H470.387V67.0257C470.387 77.1131 462.737 84.0139 451.243 84.0139C439.7 84.0139 432.098 77.1131 432.098 67.0257V36.3504H440.645V66.3149C440.645 72.207 444.746 76.4252 451.243 76.4252C457.716 76.4252 461.838 72.207 461.838 66.3149ZM478.706 36.3504H487.251V83.303H478.706V36.3504Z" />
+      <div class="flex justify-end">
+        <a href="https://github.com/getrailsui/railsui-stimulus" target="_blank">
+          <svg class="fill-current text-neutral-900" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <title>github</title>
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12">
+            </path>
           </svg>
         </a>
       </div>
 
-      <div class="w-full flex justify-center">
-        <h1
-          class="text-sm font-semibold tracking-tight text-center bg-neutral-200 text-neutral-900 px-2 py-px rounded-md">
-          Stimulus Components</h1>
-      </div>
-
-      <div class="w-full">
-        <div class="prose-lg prose-neutral text-center max-w-xl mx-auto">
-          <p>An ever-growing library of Stimulus.js components designed for use with Rails UI, but also versatile enough
-            to be
-            used independently.</p>
-          <hr class="md:block hidden">
+      <div class="flex justify-center flex-wrap gap-4">
+        <div class="flex items-center gap-2">
+          <a href="https://railsui.com?ref=github.com" target="_blank">
+            <svg class="fill-current w-32 h-auto" width="519" height="152" viewBox="0 0 519 152" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M143.867 132.581L141.376 130.101L136.809 133.614C132.242 129.275 128.713 123.077 126.014 115.227C122.277 104.278 119.371 97.0468 117.295 93.5344C112.105 85.0642 104.423 77.8334 93.8354 71.4291L122.9 50.7698L112.312 36.3086C104.838 26.1856 98.8179 18.1285 94.4584 12.5505L57.5055 36.9284C56.052 22.8801 47.3329 13.3769 33.4237 13.3769C23.8741 13.3769 14.9472 16.8889 6.85081 23.7065V26.3922C12.4561 24.946 16.8157 24.1197 20.1373 24.1197C31.7629 24.1197 37.3681 30.524 37.1605 43.3327L36.9529 52.2163L3.32161 77.2139C26.1577 88.3696 37.5757 102.831 37.5757 120.598C22.2133 125.35 9.75724 134.027 0 146.835L0.207601 147.868C16.1928 141.877 29.4793 138.985 40.4822 138.985C43.1809 138.985 45.8798 139.191 48.1634 139.398C53.7685 140.018 59.789 141.877 65.8096 145.183C68.0931 146.422 71.8297 148.695 77.4352 152L98.6104 130.721L95.9114 128.035L91.5518 131.961C85.5313 128.449 79.0957 125.556 72.4527 123.284V87.5436C82.0023 87.5436 89.6833 91.6754 95.2889 100.146C97.3649 103.245 101.309 112.128 107.329 126.796C112.105 138.571 117.295 146.422 122.9 150.76H124.976L143.867 132.581ZM102.347 60.2735L72.4527 82.1718V31.9702L78.8882 27.6317L102.347 60.2735ZM68.0931 121.837C65.1866 121.011 62.0726 120.598 58.751 120.598V41.4734L68.0931 35.2756V121.837ZM36.7453 80.5193L21.1753 68.1237L36.7453 57.7941V80.5193Z" />
+              <path d="M219.594 134.233L217.311 132.374L213.574 134.233C210.875 133.407 208.799 131.341 207.761 127.829V73.7015C209.214 68.1237 211.498 62.9588 214.82 57.794L214.404 56.9676L208.592 61.5129L179.113 51.8027C172.677 57.794 165.411 60.4799 157.729 59.86L155.031 59.6535L164.995 85.4776C151.294 97.6662 144.443 110.062 144.443 122.87C144.443 131.341 149.425 140.224 159.183 149.314H160.221L188.455 126.796C188.455 136.919 192.814 144.356 201.741 149.108L219.594 134.233ZM188.455 95.3938L167.071 85.0641L158.352 61.5129L188.455 72.6685V95.3938ZM188.662 121.424L173.092 134.646C164.995 126.589 161.051 117.912 161.051 108.616C161.051 102.212 163.127 95.3938 167.071 88.3695L188.662 99.1126V121.424Z" />
+              <path d="M253.326 21.6406H237.964L232.982 42.713H235.68L253.326 21.6406ZM258.724 134.233L256.648 132.374L252.911 134.853C249.59 133.2 247.721 130.928 247.098 128.242V71.0162L252.288 65.2314L236.303 52.0098L220.941 64.6119L226.961 71.0162V124.936L226.754 128.655C226.131 137.538 230.491 144.563 239.832 149.521L258.724 134.233Z" />
+              <path d="M309.559 132.994L307.068 130.308L302.085 134.027L286.93 124.523V37.5482C286.93 29.9043 290.252 23.7065 297.102 18.7483C289.421 19.7813 282.155 23.2933 275.72 29.2845L273.436 29.4911C269.492 26.3922 264.925 24.1197 259.735 22.8801C264.302 27.6317 266.585 31.9702 266.585 36.102V118.532C266.585 124.523 264.717 129.482 261.188 133.407C274.266 138.158 284.024 143.323 290.667 149.108L309.559 132.994Z" />
+              <path d="M385.458 46.638C385.458 41.4735 383.382 38.9944 379.23 38.9944C375.908 38.9944 374.247 40.0273 374.247 42.2998L375.285 44.1592C378.399 48.0845 379.853 50.5634 379.853 52.0098C379.853 55.9347 375.908 59.2406 371.964 59.2406L366.566 59.8601C360.131 59.8601 351.411 56.9677 339.993 51.3899C332.312 58.6206 323.8 64.4049 314.458 68.5368V100.352L334.388 111.301L309.684 146.422L312.382 148.282C319.648 145.183 326.499 143.53 333.35 143.53C340.201 143.53 347.259 145.389 354.318 148.901C360.131 144.976 364.283 142.497 366.566 141.051C370.926 138.365 375.493 136.299 380.06 134.853V96.8403L360.546 84.8577L379.437 59.4471C383.382 54.0758 385.458 49.7369 385.458 46.638ZM365.321 71.2227L345.183 97.6663L332.727 91.262L332.935 67.5038C340.616 70.6027 347.467 72.0492 353.695 72.0492C358.055 72.0492 361.999 71.8427 365.321 71.2227ZM362.829 105.724L362.622 133.2C354.941 129.482 347.467 127.622 340.201 127.622C335.011 127.622 330.444 128.035 326.707 128.862L349.75 99.1127L362.829 105.724Z" />
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M437.908 9.68399H486.564C499.107 9.68399 509.27 19.8006 509.27 32.28V83.9281C509.27 96.4076 499.107 106.524 486.564 106.524H437.908C425.368 106.524 415.202 96.4076 415.202 83.9281V32.28C415.202 19.8006 425.368 9.68399 437.908 9.68399ZM405.471 32.28C405.471 14.4522 419.993 0 437.908 0H486.564C504.479 0 519 14.4522 519 32.28V83.9281C519 101.756 504.479 116.208 486.564 116.208H437.908C419.993 116.208 405.471 101.756 405.471 83.9281V32.28ZM461.838 66.3149V36.3504H470.387V67.0257C470.387 77.1131 462.737 84.0139 451.243 84.0139C439.7 84.0139 432.098 77.1131 432.098 67.0257V36.3504H440.645V66.3149C440.645 72.207 444.746 76.4252 451.243 76.4252C457.716 76.4252 461.838 72.207 461.838 66.3149ZM478.706 36.3504H487.251V83.303H478.706V36.3504Z" />
+            </svg>
+          </a>
         </div>
+
+        <div class="w-full flex justify-center">
+          <h1 class="text-sm font-semibold tracking-tight text-center bg-neutral-200 text-neutral-900 px-2 py-px rounded-md">
+            Stimulus Components</h1>
+        </div>
+
+        <div class="w-full">
+          <div class="prose-lg prose-neutral text-center max-w-xl mx-auto">
+            <p>An ever-growing library of Stimulus.js components designed for use with Rails UI, but also versatile enough
+              to be
+              used independently.</p>
+            <hr class="md:block hidden">
+          </div>
+        </div>
+
       </div>
-
-    </div>
-    <div class="w-full flex flex-wrap md:justify-between justify-center items-center md:gap-4 pt-6">
-      <img src="https://img.shields.io/npm/v/railsui-stimulus.svg" class="flex-shrink-0 flex-none w-auto h-4" />
-      <div
-        class="md:flex-1 text-center prose max-w-full md:text-right prose-code:text-red-600 prose-code:font-normal prose-code:bg-red-50 prose-code:p-px prose-code:rounded-md prose-code:before:content-[''] prose-code:after:content-[''] my-6">
-        <p>Preview examples locally by running <code>yarn install && yarn run build && npx serve</code>. Then open
-          <code>localhost:3000</code> in your browser.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="flex flex-wrap items-start justify-between gap-6 max-w-6xl mx-auto px-4 pb-24">
-    <div class="md:w-1/5 w-full">
-      <nav role="nav">
-        <ul class="font-medium space-y-1 w-full">
-          <li>
-            <a href="#clipboard"
-              class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block w-full">Clipboard</a>
-          </li>
-          <li>
-            <a href="#countup"
-              class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block w-full">Count
-              up</a>
-          </li>
-          <li>
-            <a href="#combobox"
-              class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block w-full">Combobox
-            </a>
-          </li>
-          <li>
-            <a href="#daterangepicker"
-              class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block">Date Range Picker</a>
-          </li>
-          <li>
-            <a href="#dropdown"
-              class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block">Dropdown</a>
-          </li>
-          <li>
-            <a href="#modal"
-              class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block w-full">Modal</a>
-          </li>
-          <li>
-            <a href="#range"
-              class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block w-full">Range slider</a>
-          </li>
-          <li>
-            <a href="#read_more"
-              class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block w-full">Read more</a>
-          </li>
-          <li>
-            <a href="#select_all"
-              class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block w-full">Select all</a>
-          </li>
-          <li>
-            <a href="#tab"
-              class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block w-full">Tab</a>
-          </li>
-          <li>
-            <a href="#toggle"
-              class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block w-full">Toggle</a>
-          </li>
-          <li>
-            <a href="#tooltip"
-              class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block w-full">Tooltip</a>
-          </li>
-
-        </ul>
-      </nav>
-    </div>
-    <div class="flex-1 space-y-8">
-
-      <!-- Clipboard  -->
-      <div id="clipboard" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
-        <div class="prose mb-6 prose-neutral max-w-full">
-          <h2>Clipboard</h2>
-          <p>A drop-in click-to-copy component with the help of <a href="https://atomiks.github.io/tippyjs/"
-              target="_blank">tippy.js</a></p>
+      <div class="w-full flex flex-wrap md:justify-between justify-center items-center md:gap-4 pt-6">
+        <img src="https://img.shields.io/npm/v/railsui-stimulus.svg" class="flex-shrink-0 flex-none w-auto h-4" />
+        <div class="md:flex-1 text-center prose max-w-full md:text-right prose-code:text-red-600 prose-code:font-normal prose-code:bg-red-50 prose-code:p-px prose-code:rounded-md prose-code:before:content-[''] prose-code:after:content-[''] my-6">
+          <p>Preview examples locally by running <code>yarn install && yarn run build && npx serve</code>. Then open
+            <code>localhost:3000</code> in your browser.
           </p>
         </div>
+      </div>
+    </div>
 
-        <div class="mb-6">
-          <p class="font-medium mb-2">Input trigger</p>
-          <div class="max-w-md">
-            <div class="relative">
-              <input type="text" readonly value="XDFA-ASE3-ADFA-342S" data-controller="railsui-clipboard"
-                data-railsui-clipboard-target="content" data-action="click->railsui-clipboard#copy" class="rounded font-mono px-3 py-1.5 border border-gray-300/80 bg-white focus:border-gray-400/80 focus:ring-4 focus:ring-gray-500/10
+    <div class="flex flex-wrap items-start justify-between gap-6 max-w-6xl mx-auto px-4 pb-24">
+      <div class="md:w-1/5 w-full">
+        <nav role="nav">
+          <ul class="font-medium space-y-1 w-full">
+            <li>
+              <a href="#clipboard" class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block w-full">Clipboard</a>
+            </li>
+            <li>
+              <a href="#countup" class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block w-full">Count
+                up</a>
+            </li>
+            <li>
+              <a href="#combobox" class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block w-full">Combobox
+              </a>
+            </li>
+            <li>
+              <a href="#daterangepicker" class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block">Date Range Picker</a>
+            </li>
+            <li>
+              <a href="#dropdown" class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block">Dropdown</a>
+            </li>
+            <li>
+              <a href="#modal" class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block w-full">Modal</a>
+            </li>
+            <li>
+              <a href="#password_toggle" class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block w-full">Password Toggle</a>
+            </li>
+            <li>
+              <a href="#range" class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block w-full">Range slider</a>
+            </li>
+            <li>
+              <a href="#read_more" class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block w-full">Read more</a>
+            </li>
+            <li>
+              <a href="#select_all" class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block w-full">Select all</a>
+            </li>
+            <li>
+              <a href="#tab" class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block w-full">Tab</a>
+            </li>
+            <li>
+              <a href="#toggle" class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block w-full">Toggle</a>
+            </li>
+            <li>
+              <a href="#tooltip" class="p-2 rounded hover:bg-neutral-100 transition ease-in-out duration-200 block w-full">Tooltip</a>
+            </li>
+
+          </ul>
+        </nav>
+      </div>
+      <div class="flex-1 space-y-8">
+
+        <!-- Clipboard  -->
+        <div id="clipboard" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
+          <div class="prose mb-6 prose-neutral max-w-full">
+            <h2>Clipboard</h2>
+            <p>A drop-in click-to-copy component with the help of <a href="https://atomiks.github.io/tippyjs/" target="_blank">tippy.js</a></p>
+            </p>
+          </div>
+
+          <div class="mb-6">
+            <p class="font-medium mb-2">Input trigger</p>
+            <div class="max-w-md">
+              <div class="relative">
+                <input type="text" readonly value="XDFA-ASE3-ADFA-342S" data-controller="railsui-clipboard" data-railsui-clipboard-target="content" data-action="click->railsui-clipboard#copy" class="rounded font-mono px-3 py-1.5 border border-gray-300/80 bg-white focus:border-gray-400/80 focus:ring-4 focus:ring-gray-500/10
             focus:shadow-none focus:outline-none placeholder-gray-600/80
             font-normal antialiased font-sans w-full
             shadow-gray-200/30 peer">
-              <svg
-                class="absolute top-2.5 right-2 stroke-current size-5 peer-focus:stroke-neutral-800 stroke-neutral-400 fill-none"
-                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <title>square-2-stack</title>
-                <path
-                  d="M16.5 8.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v8.25A2.25 2.25 0 0 0 6 16.5h2.25m8.25-8.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-7.5A2.25 2.25 0 0 1 8.25 18v-1.5m8.25-8.25h-6a2.25 2.25 0 0 0-2.25 2.25v6"
-                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
-            </div>
-          </div>
-        </div>
-
-        <p class="font-medium mb-2">Button trigger</p>
-        <div data-controller="railsui-clipboard" class="flex items-center relative max-w-md">
-          <input type="text" id="test" value="TRY-RAILSUI-TODAY" data-railsui-clipboard-target="content" class="rounded font-mono px-3 py-1.5 border border-gray-300/80 bg-neutral-100 font-normal antialiased font-sans w-full
-            shadow-gray-200/30 pointer-events-none" readonly>
-          <button type="button" data-action="click->railsui-clipboard#copy"
-            class="absolute top-1 right-1 py-1 px-3 font-medium text-sm text-center rounded-md focus:ring-4 transition ease-in-out duration-300 no-underline inline-flex items-center justify-center bg-white hover:bg-white text-neutral-700 focus:ring-neutral-100 border border-neutral-300 shadow-sm hover:border-neutral-400 shadow-neutral-300/20 hover:shadow-neutral-300/50 gap-3">Copy</button>
-        </div>
-      </div>
-
-
-      <!-- Count up -->
-      <div id="countup" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
-        <div class="prose mb-6 prose-neutral max-w-full">
-          <h2>Count up</h2>
-          <p>A nice drop-in animated effect for stats. Control the duration and display with extended data attributes.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div class="border p-6 rounded-xl border-neutral-300/80">
-            <h3 class="text-3xl tracking-tight font-extrabold font-sans mb-2" data-controller="railsui-count-up"
-              data-railsui-count-up-target-value="95" data-railsui-count-up="95%">0%</h3>
-            <div class="prose prose-neutral">
-              <p>of developers report higher productivity with the use of modern development tools.</p>
-            </div>
-          </div>
-          <div class="border p-6 rounded-xl border-neutral-300/80">
-            <h3 class="text-3xl tracking-tight font-extrabold font-sans mb-2" data-controller="railsui-count-up"
-              data-railsui-count-up-target-value="88" data-railsui-count-up="88%">88%</h3>
-            <div class="prose prose-neutral">
-              <p>of developers prefer using Tailwind CSS for its utility-first approach.</p>
-            </div>
-          </div>
-          <div class="border p-6 rounded-xl border-neutral-300/80">
-            <h3 class="text-3xl tracking-tight font-extrabold font-sans mb-2" data-controller="railsui-count-up"
-              data-railsui-count-up-target-value="72" data-railsui-count-up="72%">72%</h3>
-            <div class="prose prose-neutral">
-              <p>of developers experienced faster project completion times with Ruby on Rails.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <!-- Combobox -->
-      <div id="combobox" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
-        <div class="prose mb-6 prose-neutral max-w-full">
-          <h2>Combobox</h2>
-          <p>A dynamic combobox designed with accessibility in mind. Use keyboard commands to navigate through options
-            with tab, arrow keys, and enter. Search options with the search field and select an option with the enter
-            key.
-          </p>
-          <p>Theme it with Tailwind CSS.</p>
-        </div>
-
-        <div data-controller="railsui-combobox" class="relative w-64"
-          data-railsui-combobox-active-class-value="bg-blue-500 text-white hover:bg-blue-600"
-          data-railsui-combobox-inactive-class-value="bg-white text-gray-800 hover:bg-gray-50"
-          data-action="click@window->railsui-combobox#handleOutsideClick">
-
-          <!-- Hidden input for form submission -->
-          <input type="hidden" name="selected_option" data-railsui-combobox-target="hiddenInput" />
-
-          <!-- Top-level combobox button -->
-          <div data-action="click->railsui-combobox#toggleDropdown keydown.enter->railsui-combobox#toggleDropdown"
-            data-railsui-combobox-target="box" role="combobox" aria-expanded="false" aria-controls="combobox-list"
-            aria-labelledby="combobox-label" tabindex="0" class="rounded-md pl-3 pr-2 py-1.5 border border-gray-400/40 bg-white cursor-pointer focus:ring-2 focus:ring-blue-500
-            placeholder-gray-600/80 font-normal antialiased font-sans w-full shadow-gray-200/30 shadow-sm line-clamp-1
-            whitespace-nowrap flex items-center justify-between">
-            <span id="combobox-label" class="sr-only">Select an option</span>
-            <span data-railsui-combobox-target="text">Select an option...</span>
-            <svg class="stroke-current stroke-gray-500 pointer-events-none size-5" xmlns="http://www.w3.org/2000/svg"
-              width="24" height="24" viewBox="0 0 24 24">
-              <title>chevron-up-down</title>
-              <g fill="none">
-                <path d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round"></path>
-              </g>
-            </svg>
-          </div>
-
-          <!-- combobox dropdown -->
-          <div data-railsui-combobox-target="list" data-transition-enter-from="opacity-0 scale-95"
-            data-transition-enter-to="opacity-100 scale-100" data-transition-leave-from="opacity-100 scale-100"
-            data-transition-leave-to="opacity-0 scale-95" data-action="keydown.esc->railsui-combobox#hideDropdown"
-            class="absolute z-10 w-full mt-1 bg-white border rounded shadow-lg max-h-50 rounded-md overflow-y-auto  transition ease-in-out duration-200 origin-top hidden"
-            role="listbox" aria-labelledby="combobox-label">
-            <!-- Search input inside dropdown -->
-            <div class="p-2">
-              <label for="combobox-search" class="sr-only">Search</label>
-              <div class="relative">
-                <input id="combobox-search" type="text" data-railsui-combobox-target="input"
-                  class="rounded-md pr-3 pl-8 py-1.5 border border-gray-400/40 bg-white focus:border-gray-400/80 focus:ring-4 focus:ring-gray-400/10 focus:shadow-none focus:outline-none placeholder-gray-600/80 font-normal antialiased font-sans w-full shadow-gray-200/30 shadow-sm"
-                  placeholder="Search..." autocomplete="off" aria-autocomplete="list"
-                  data-action="input->railsui-combobox#filter keydown->railsui-combobox#handleKeydown" />
-                <svg class="stroke-gray-400 size-4 absolute top-3 left-3" xmlns="http://www.w3.org/2000/svg" width="24"
-                  height="24" viewBox="0 0 24 24">
-                  <title>magnifying-glass</title>
-                  <g fill="none">
-                    <path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607z"
-                      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                  </g>
+                <svg class="absolute top-2.5 right-2 stroke-current size-5 peer-focus:stroke-neutral-800 stroke-neutral-400 fill-none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <title>square-2-stack</title>
+                  <path d="M16.5 8.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v8.25A2.25 2.25 0 0 0 6 16.5h2.25m8.25-8.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-7.5A2.25 2.25 0 0 1 8.25 18v-1.5m8.25-8.25h-6a2.25 2.25 0 0 0-2.25 2.25v6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
               </div>
             </div>
+          </div>
 
-            <!-- List of options -->
-            <ul role="presentation">
-              <li id="option-1" data-railsui-combobox-target="option"
-                class="px-4 py-2 cursor-pointer flex items-center justify-between" tabindex="0" role="option"
-                data-value="Option 1" aria-selected="false"
-                data-action="click->railsui-combobox#selectOption keydown.enter->railsui-combobox#selectOption">
-                Option 1
+          <p class="font-medium mb-2">Button trigger</p>
+          <div data-controller="railsui-clipboard" class="flex items-center relative max-w-md">
+            <input type="text" id="test" value="TRY-RAILSUI-TODAY" data-railsui-clipboard-target="content" class="rounded font-mono px-3 py-1.5 border border-gray-300/80 bg-neutral-100 font-normal antialiased font-sans w-full
+            shadow-gray-200/30 pointer-events-none" readonly>
+            <button type="button" data-action="click->railsui-clipboard#copy" class="absolute top-1 right-1 py-1 px-3 font-medium text-sm text-center rounded-md focus:ring-4 transition ease-in-out duration-300 no-underline inline-flex items-center justify-center bg-white hover:bg-white text-neutral-700 focus:ring-neutral-100 border border-neutral-300 shadow-sm hover:border-neutral-400 shadow-neutral-300/20 hover:shadow-neutral-300/50 gap-3">Copy</button>
+          </div>
+        </div>
 
-                <span data-railsui-combobox-target="checkmark" class="hidden" aria-hidden="true">
-                  <svg class="stroke-current text-blue-900 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
-                    height="24" viewBox="0 0 24 24">
-                    <g fill="none">
-                      <path d="M4.5 12.75l6 6 9-13.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      </path>
-                    </g>
-                  </svg>
-                </span>
-              </li>
-              <li id="option-2" data-railsui-combobox-target="option"
-                class="px-4 py-2 cursor-pointer flex items-center justify-between" role="option" tabindex="0"
-                aria-selected="false" data-value="Option 2"
-                data-action="click->railsui-combobox#selectOption keydown.enter->railsui-combobox#selectOption">
-                Option 2
 
-                <span data-railsui-combobox-target="checkmark" class="hidden" aria-hidden="true">
-                  <svg class="stroke-current text-blue-900 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
-                    height="24" viewBox="0 0 24 24">
-                    <g fill="none">
-                      <path d="M4.5 12.75l6 6 9-13.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      </path>
-                    </g>
-                  </svg>
-                </span>
-              </li>
-              <li id="option-3" data-railsui-combobox-target="option"
-                class="px-4 py-2 cursor-pointer flex items-center justify-between" tabindex="0" data-value="Option 3"
-                role="option" aria-selected="false"
-                data-action="click->railsui-combobox#selectOption keydown.enter->railsui-combobox#selectOption">
-                Option 3
+        <!-- Count up -->
+        <div id="countup" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
+          <div class="prose mb-6 prose-neutral max-w-full">
+            <h2>Count up</h2>
+            <p>A nice drop-in animated effect for stats. Control the duration and display with extended data attributes.
+            </p>
+          </div>
 
-                <span data-railsui-combobox-target="checkmark" class="hidden" aria-hidden="true">
-                  <svg class="stroke-current text-blue-900 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
-                    height="24" viewBox="0 0 24 24">
-
-                    <g fill="none">
-                      <path d="M4.5 12.75l6 6 9-13.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      </path>
-                    </g>
-                  </svg>
-                </span>
-              </li>
-              <li id="option-4" data-railsui-combobox-target="option"
-                class="px-4 py-2 cursor-pointer flex items-center justify-between" tabindex="0" data-value="Option 4"
-                role="option" aria-selected="false"
-                data-action="click->railsui-combobox#selectOption keydown.enter->railsui-combobox#selectOption">
-                Option 4
-
-                <span data-railsui-combobox-target="checkmark" class="hidden" aria-hidden="true">
-                  <svg class="stroke-current text-blue-900 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
-                    height="24" viewBox="0 0 24 24">
-
-                    <g fill="none">
-                      <path d="M4.5 12.75l6 6 9-13.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      </path>
-                    </g>
-                  </svg>
-                </span>
-              </li>
-            </ul>
-
-            <!-- No results message -->
-            <div data-railsui-combobox-target="noresults" class="hidden px-4 py-2 text-gray-500" aria-hidden="true">
-              No results found
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="border p-6 rounded-xl border-neutral-300/80">
+              <h3 class="text-3xl tracking-tight font-extrabold font-sans mb-2" data-controller="railsui-count-up" data-railsui-count-up-target-value="95" data-railsui-count-up="95%">0%</h3>
+              <div class="prose prose-neutral">
+                <p>of developers report higher productivity with the use of modern development tools.</p>
+              </div>
+            </div>
+            <div class="border p-6 rounded-xl border-neutral-300/80">
+              <h3 class="text-3xl tracking-tight font-extrabold font-sans mb-2" data-controller="railsui-count-up" data-railsui-count-up-target-value="88" data-railsui-count-up="88%">88%</h3>
+              <div class="prose prose-neutral">
+                <p>of developers prefer using Tailwind CSS for its utility-first approach.</p>
+              </div>
+            </div>
+            <div class="border p-6 rounded-xl border-neutral-300/80">
+              <h3 class="text-3xl tracking-tight font-extrabold font-sans mb-2" data-controller="railsui-count-up" data-railsui-count-up-target-value="72" data-railsui-count-up="72%">72%</h3>
+              <div class="prose prose-neutral">
+                <p>of developers experienced faster project completion times with Ruby on Rails.</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Date range picker -->
-      <div id="daterangepicker" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
-        <div class="prose mb-6 prose-neutral max-w-full">
-          <h2>Date Range Picker</h2>
-          <p>A custom date range picker built with <a href="https://github.com/flatpickr/flatpickr"
-              target="_blank">flatpickr.js</a>. Range selected outputs to a hidden input.</p>
 
-          <button type="button" data-controller="railsui-date-range-picker" data-
-            class="py-2 px-3 font-medium text-sm text-center rounded-md focus:ring-4 transition ease-in-out duration-300 no-underline inline-flex items-center justify-center bg-white hover:bg-white text-neutral-700 focus:ring-neutral-100 border border-neutral-300 shadow-sm hover:border-neutral-400 shadow-neutral-300/20 hover:shadow-neutral-300/50 gap-3 sm:w-[155px] flex items-center whitespace-nowrap w-full justify-center">
-            <svg class="pointer-events-none stroke-current size-4 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"
-              width="24" height="24" viewBox="0 0 24 24">
-              <title>calendar-days</title>
-              <g fill="none">
-                <path
-                  d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z"
-                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </g>
-            </svg>
-            <span data-railsui-date-range-picker-target="label"></span>
-            <input type="hidden" data-railsui-date-range-picker-target="input">
-          </button>
+        <!-- Combobox -->
+        <div id="combobox" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
+          <div class="prose mb-6 prose-neutral max-w-full">
+            <h2>Combobox</h2>
+            <p>A dynamic combobox designed with accessibility in mind. Use keyboard commands to navigate through options
+              with tab, arrow keys, and enter. Search options with the search field and select an option with the enter
+              key.
+            </p>
+            <p>Theme it with Tailwind CSS.</p>
+          </div>
 
-          <hr />
+          <div data-controller="railsui-combobox" class="relative w-64" data-railsui-combobox-active-class-value="bg-blue-500 text-white hover:bg-blue-600" data-railsui-combobox-inactive-class-value="bg-white text-gray-800 hover:bg-gray-50" data-action="click@window->railsui-combobox#handleOutsideClick">
 
-          <p class="text-sm">Example usage in the context of a Rails app.</p>
-          <div class="not-prose">
-            <pre class="whitespace-pre-wrap"><code class="px-6 py-4 rounded-xl language-html">&lt;!-- Pass custom values (optional) --&gt;
+            <!-- Hidden input for form submission -->
+            <input type="hidden" name="selected_option" data-railsui-combobox-target="hiddenInput" />
+
+            <!-- Top-level combobox button -->
+            <div data-action="click->railsui-combobox#toggleDropdown keydown.enter->railsui-combobox#toggleDropdown" data-railsui-combobox-target="box" role="combobox" aria-expanded="false" aria-controls="combobox-list" aria-labelledby="combobox-label" tabindex="0" class="rounded-md pl-3 pr-2 py-1.5 border border-gray-400/40 bg-white cursor-pointer focus:ring-2 focus:ring-blue-500
+            placeholder-gray-600/80 font-normal antialiased font-sans w-full shadow-gray-200/30 shadow-sm line-clamp-1
+            whitespace-nowrap flex items-center justify-between">
+              <span id="combobox-label" class="sr-only">Select an option</span>
+              <span data-railsui-combobox-target="text">Select an option...</span>
+              <svg class="stroke-current stroke-gray-500 pointer-events-none size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <title>chevron-up-down</title>
+                <g fill="none">
+                  <path d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+              </svg>
+            </div>
+
+            <!-- combobox dropdown -->
+            <div data-railsui-combobox-target="list" data-transition-enter-from="opacity-0 scale-95" data-transition-enter-to="opacity-100 scale-100" data-transition-leave-from="opacity-100 scale-100" data-transition-leave-to="opacity-0 scale-95" data-action="keydown.esc->railsui-combobox#hideDropdown" class="absolute z-10 w-full mt-1 bg-white border rounded shadow-lg max-h-50 rounded-md overflow-y-auto  transition ease-in-out duration-200 origin-top hidden" role="listbox" aria-labelledby="combobox-label">
+              <!-- Search input inside dropdown -->
+              <div class="p-2">
+                <label for="combobox-search" class="sr-only">Search</label>
+                <div class="relative">
+                  <input id="combobox-search" type="text" data-railsui-combobox-target="input" class="rounded-md pr-3 pl-8 py-1.5 border border-gray-400/40 bg-white focus:border-gray-400/80 focus:ring-4 focus:ring-gray-400/10 focus:shadow-none focus:outline-none placeholder-gray-600/80 font-normal antialiased font-sans w-full shadow-gray-200/30 shadow-sm" placeholder="Search..." autocomplete="off" aria-autocomplete="list" data-action="input->railsui-combobox#filter keydown->railsui-combobox#handleKeydown" />
+                  <svg class="stroke-gray-400 size-4 absolute top-3 left-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <title>magnifying-glass</title>
+                    <g fill="none">
+                      <path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- List of options -->
+              <ul role="presentation">
+                <li id="option-1" data-railsui-combobox-target="option" class="px-4 py-2 cursor-pointer flex items-center justify-between" tabindex="0" role="option" data-value="Option 1" aria-selected="false" data-action="click->railsui-combobox#selectOption keydown.enter->railsui-combobox#selectOption">
+                  Option 1
+
+                  <span data-railsui-combobox-target="checkmark" class="hidden" aria-hidden="true">
+                    <svg class="stroke-current text-blue-900 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <g fill="none">
+                        <path d="M4.5 12.75l6 6 9-13.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                      </g>
+                    </svg>
+                  </span>
+                </li>
+                <li id="option-2" data-railsui-combobox-target="option" class="px-4 py-2 cursor-pointer flex items-center justify-between" role="option" tabindex="0" aria-selected="false" data-value="Option 2" data-action="click->railsui-combobox#selectOption keydown.enter->railsui-combobox#selectOption">
+                  Option 2
+
+                  <span data-railsui-combobox-target="checkmark" class="hidden" aria-hidden="true">
+                    <svg class="stroke-current text-blue-900 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <g fill="none">
+                        <path d="M4.5 12.75l6 6 9-13.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                      </g>
+                    </svg>
+                  </span>
+                </li>
+                <li id="option-3" data-railsui-combobox-target="option" class="px-4 py-2 cursor-pointer flex items-center justify-between" tabindex="0" data-value="Option 3" role="option" aria-selected="false" data-action="click->railsui-combobox#selectOption keydown.enter->railsui-combobox#selectOption">
+                  Option 3
+
+                  <span data-railsui-combobox-target="checkmark" class="hidden" aria-hidden="true">
+                    <svg class="stroke-current text-blue-900 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+
+                      <g fill="none">
+                        <path d="M4.5 12.75l6 6 9-13.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                      </g>
+                    </svg>
+                  </span>
+                </li>
+                <li id="option-4" data-railsui-combobox-target="option" class="px-4 py-2 cursor-pointer flex items-center justify-between" tabindex="0" data-value="Option 4" role="option" aria-selected="false" data-action="click->railsui-combobox#selectOption keydown.enter->railsui-combobox#selectOption">
+                  Option 4
+
+                  <span data-railsui-combobox-target="checkmark" class="hidden" aria-hidden="true">
+                    <svg class="stroke-current text-blue-900 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+
+                      <g fill="none">
+                        <path d="M4.5 12.75l6 6 9-13.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                      </g>
+                    </svg>
+                  </span>
+                </li>
+              </ul>
+
+              <!-- No results message -->
+              <div data-railsui-combobox-target="noresults" class="hidden px-4 py-2 text-gray-500" aria-hidden="true">
+                No results found
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Date range picker -->
+        <div id="daterangepicker" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
+          <div class="prose mb-6 prose-neutral max-w-full">
+            <h2>Date Range Picker</h2>
+            <p>A custom date range picker built with <a href="https://github.com/flatpickr/flatpickr" target="_blank">flatpickr.js</a>. Range selected outputs to a hidden input.</p>
+
+            <button type="button" data-controller="railsui-date-range-picker" data- class="py-2 px-3 font-medium text-sm text-center rounded-md focus:ring-4 transition ease-in-out duration-300 no-underline inline-flex items-center justify-center bg-white hover:bg-white text-neutral-700 focus:ring-neutral-100 border border-neutral-300 shadow-sm hover:border-neutral-400 shadow-neutral-300/20 hover:shadow-neutral-300/50 gap-3 sm:w-[155px] flex items-center whitespace-nowrap w-full justify-center">
+              <svg class="pointer-events-none stroke-current size-4 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <title>calendar-days</title>
+                <g fill="none">
+                  <path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+              </svg>
+              <span data-railsui-date-range-picker-target="label"></span>
+              <input type="hidden" data-railsui-date-range-picker-target="input">
+            </button>
+
+            <hr />
+
+            <p class="text-sm">Example usage in the context of a Rails app.</p>
+            <div class="not-prose">
+              <pre class="whitespace-pre-wrap"><code class="px-6 py-4 rounded-xl language-html">&lt;!-- Pass custom values (optional) --&gt;
 &lt;button type=&quot;button&quot; class=&quot;btn btn-white...&quot; data-controller=&quot;date-range-picker&quot;
 data-date-range-picker-date-format-value=&quot;m-d-Y&quot;
 data-date-range-picker-date-min-date-value=&quot;&lt;%= Date.today.year - 1 %&gt;&quot;&gt;
   &lt;span data-date-range-picker-target=&quot;label&quot;&gt;&lt;/span&gt;
   &lt;input type=&quot;hidden&quot; data-date-range-picker-target=&quot;input&quot;&gt;
 &lt;/button&gt;</code></pre>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Dropdown -->
-      <div id="dropdown" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
-        <div class="prose mb-6 prose-neutral">
-          <h2>Dropdowns</h2>
-          <p>Animated dropdowns with the help of <a
-              href="https://github.com/stimulus-use/stimulus-use">stimulus-use</a>.</p>
-        </div>
-
-
-        <div data-controller="railsui-dropdown" class="relative md:inline-block block md:w-auto w-full">
-          <button type="button" data-action="click->railsui-dropdown#toggle click@window->railsui-dropdown#hide"
-            class="py-2 px-3 font-medium text-sm text-center rounded-md focus:ring-4 transition ease-in-out duration-300 no-underline inline-flex items-center justify-center bg-white hover:bg-white text-neutral-700 focus:ring-neutral-100 border border-neutral-300 shadow-sm hover:border-neutral-400 shadow-neutral-300/20 hover:shadow-neutral-300/50 gap-2">
-            Dropdown
-            <svg class="size-3 stroke-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-              viewBox="0 0 24 24">
-              <title>chevron-down</title>
-              <g fill="none">
-                <path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                </path>
-              </g>
-            </svg>
-          </button>
-          <div
-            class="hidden transition transform origin-top-left absolute left-0 top-11 bg-white rounded-lg shadow-xl shadow-neutral-900/10 border border-neutral-200 md:w-[200px] w-full z-50 py-2 md:text-sm text-base font-medium text-neutral-600"
-            data-railsui-dropdown-target="menu" data-transition-enter-from="opacity-0 scale-95"
-            data-transition-enter-to="opacity-100 scale-100" data-transition-leave-from="opacity-100 scale-100"
-            data-transition-leave-to="opacity-0 scale-95">
-            <div>
-              <a href="#" class="px-4 py-[.4rem] hover:text-neutral-900 block hover:bg-neutral-50">Item
-                1</a>
-            </div>
-            <div>
-              <a href="#" class="px-4 py-[.4rem] hover:text-neutral-900 block hover:bg-neutral-50">Item
-                2</a>
-            </div>
-            <div>
-              <a href="#" class="px-4 py-[.4rem] hover:text-neutral-900 block hover:bg-neutral-50">Item
-                3</a>
             </div>
           </div>
-        </div>
-      </div>
 
-
-      <!-- Modals -->
-      <div id="modal" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
-        <div class="prose mb-6 prose-neutral">
-          <h2>Modal</h2>
-          <p>Fluid modals with the help of <a href="https://github.com/stimulus-use/stimulus-use">stimulus-use</a> for
-            transition effects.</p>
         </div>
 
-        <div data-controller="railsui-modal">
-          <button type="button" data-action="click->railsui-modal#open"
-            class="py-2 px-3 font-medium text-sm text-center rounded-md focus:ring-4 transition ease-in-out duration-300 no-underline inline-flex items-center justify-center bg-white hover:bg-white text-neutral-700 focus:ring-neutral-100 border border-neutral-300 shadow-sm hover:border-neutral-400 shadow-neutral-300/20 hover:shadow-neutral-300/50 gap-2"
-            tabindex="0">
-            Open modal
-          </button>
-
-          <div aria-labelledby="modal-title" aria-modal="true" data-railsui-modal-target="container"
-            data-action="keyup@window->railsui-modal#closeWithEsc" class="hidden fixed inset-0 z-50 overflow-y-auto">
-            <div class="h-screen w-full relative flex items-center justify-center">
-              <div data-railsui-modal-target="content" data-transition-enter-active="transition ease-out duration-300"
-                data-transition-enter-from="transform opacity-0 scale-95"
-                data-transition-enter-to="transform opacity-100 scale-100"
-                data-transition-leave-active="transition ease-in duration-300"
-                data-transition-leave-from="transform opacity-100 scale-100"
-                data-transition-leave-to="transform opacity-0 scale-95"
-                class="hidden rounded-xl shadow-xl max-w-lg bg-white m-1 p-8 prose origin-bottom mx-auto">
-                <h3 id="modal-title" class="text-2xl font-bold text-neutral-900 tracking-tight">
-                  Modal Title</h3>
-
-                <div class="prose prose-neutral mt-2 mb-6">
-                  <p>This modal contains important information about the actions you are about to take. Make sure
-                    you have read all the instructions carefully.
-                  </p>
-                </div>
-
-                <div class="flex justify-end items-center flex-wrap gap-4">
-                  <button
-                    class="py-2 px-3 font-medium text-sm text-center rounded-md focus:ring-4 transition ease-in-out duration-300 no-underline inline-flex items-center justify-center bg-white hover:bg-white text-neutral-700 focus:ring-neutral-100 border border-neutral-300 shadow-sm hover:border-neutral-400 shadow-neutral-300/20 hover:shadow-neutral-300/50"
-                    data-action="click->railsui-modal#close">Close</button>
-                </div>
-              </div>
-            </div>
+        <!-- Dropdown -->
+        <div id="dropdown" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
+          <div class="prose mb-6 prose-neutral max-w-full">
+            <h2>Dropdowns</h2>
+            <p>Animated dropdowns with the help of <a href="https://github.com/stimulus-use/stimulus-use">stimulus-use</a>. For better accessibility this controller appends ARIA attributes automatically. You can also close the dropdown with the escape key.</p>
           </div>
-        </div>
-      </div>
 
-      <!-- Range Slider -->
-      <div id="range" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
-        <div class="prose mb-6 prose-neutral max-w-full">
-          <h2 class="text-2xl text-neutral-800 font-semibold mb-4">Range slider</h2>
-          <p>Range sliders aren't too easy to customize. With custom CSS variables and a dash of JavaScript from the
-            range controller we can make this more branded.</p>
-        </div>
-        <style>
-          /* Requires range_controller.js */
-          .form-input-range {
-            position: relative;
-            background: transparent;
-            appearance: none;
 
-            --range-fill: 0;
-          }
-
-          .form-input-range::-webkit-slider-thumb {
-            appearance: none;
-            border: 2px solid white;
-            width: 16px;
-            height: 16px;
-            border-radius: 100%;
-            background: white;
-            cursor: pointer;
-            position: relative;
-            top: -4.5px;
-            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
-            outline: 1px solid rgba(0, 0, 0, 0.25);
-          }
-
-          .form-input-range::-moz-range-thumb {
-            appearance: none;
-            border: 2px solid white;
-            width: 16px;
-            height: 16px;
-            border-radius: 100%;
-            background: white;
-            cursor: pointer;
-            position: relative;
-            top: -4.5px;
-            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
-            outline: 1px solid rgba(0, 0, 0, 0.25);
-          }
-
-          .form-input-range::-ms-thumb {
-            appearance: none;
-            border: 2px solid white;
-            width: 16px;
-            height: 16px;
-            border-radius: 100%;
-            background: white;
-            cursor: pointer;
-            position: relative;
-            top: -4.5px;
-            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
-            outline: 1px solid rgba(0, 0, 0, 0.25);
-          }
-
-          .form-input-range::-webkit-slider-runnable-track {
-            width: 100%;
-            height: 4px;
-            border-radius: 10px;
-            cursor: pointer;
-            background: linear-gradient(to right,
-                #22c55e var(--range-fill),
-                #d1d5db var(--range-fill));
-
-            @media (prefers-color-scheme: dark) {
-              background: linear-gradient(to right,
-                  #22c55e var(--range-fill),
-                  #374151 var(--range-fill));
-            }
-          }
-
-          .form-input-range::-moz-range-track {
-            width: 100%;
-            height: 4px;
-            border-radius: 10px;
-            cursor: pointer;
-            background: linear-gradient(to right,
-                #22c55e var(--range-fill),
-                #d1d5db var(--range-fill));
-
-            @media (prefers-color-scheme: dark) {
-              background: linear-gradient(to right,
-                  #22c55e var(--range-fill),
-                  #374151 var(--range-fill));
-            }
-          }
-
-          .form-input-range::-ms-track {
-            width: 100%;
-            height: 4px;
-            border-radius: 10px;
-            cursor: pointer;
-            background: linear-gradient(to right,
-                #22c55e var(--range-fill),
-                #d1d5db var(--range-fill));
-
-            @media (prefers-color-scheme: dark) {
-              background: linear-gradient(to right,
-                  #22c55e var(--range-fill),
-                  #374151 var(--range-fill));
-            }
-          }
-        </style>
-        <div class="form-group" data-controller="railsui-range">
-          <label for="volume" class="text-sm font-medium mb-1 block">Volume</label>
-          <input type="range" id="volume" class="form-input-range" data-railsui-range-target="range"
-            data-action="input->railsui-range#onInput" min="2" max="100" value="25" />
-        </div>
-      </div>
-
-      <!-- Read more -->
-      <div id="read_more" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
-        <div class="prose prose-neutral mb-6">
-          <h2>Read more</h2>
-        </div>
-
-        <div class="prose prose-gray mb-4" data-controller="railsui-read-more"
-          data-railsui-read-more-more-text-value="Read more" data-railsui-read-more-less-text-value="Read less"
-          data-railsui-read-more-max-length-value="150">
-          <p>
-            <span data-railsui-read-more-target="content">In this chat, we discuss our experiences and insights from
-              the
-              creative writing course. We share our thoughts on various writing prompts, exchange feedback on our
-              stories, and encourage each other to explore new ideas and styles. Whether you're a beginner or an
-              experienced writer, this space is dedicated to fostering creativity and collaboration among aspiring
-              authors.</span>
-            <button data-railsui-read-more-target="button" data-action="railsui-read-more#toggle"
-              class="font-medium underline">
-              Read more
+          <div data-controller="railsui-dropdown" class="relative md:inline-block block md:w-auto w-full">
+            <button type="button" data-action="click->railsui-dropdown#toggle click@window->railsui-dropdown#hide" class="py-2 px-3 font-medium text-sm text-center rounded-md focus:ring-4 transition ease-in-out duration-300 no-underline inline-flex items-center justify-center bg-white hover:bg-white text-neutral-700 focus:ring-neutral-100 border border-neutral-300 shadow-sm hover:border-neutral-400 shadow-neutral-300/20 hover:shadow-neutral-300/50 gap-2">
+              Dropdown
+              <svg class="size-3 stroke-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <title>chevron-down</title>
+                <g fill="none">
+                  <path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  </path>
+                </g>
+              </svg>
             </button>
-          </p>
-        </div>
-      </div>
-
-      <!-- Select all -->
-      <div id="select_all" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
-        <div class="prose mb-6 prose-neutral max-w-full">
-          <h2 class="text-2xl text-neutral-800 font-semibold mb-4">Select all</h2>
-          <p>Add a select all checkbox to a series of child checkboxes. If one or more of the children are checked
-            then
-            the parent checkbox becomes <code>indeterminate</code> until the rest are checked or unchecked entirely.
-          </p>
-        </div>
-
-        <div data-controller="railsui-select-all">
-          <div class="flex items-center justify-start">
-            <div class="md:w-12 mb-3 md:mb-0">
-              <div class="flex items-center gap-3">
-                <input type="checkbox" class="rounded accent-blue-600 border-gray-400" name="all_users" id="all_users"
-                  data-railsui-select-all-target="selectAll" />
-                <label for="all_users" class="form-label mb-0 md:hidden block text-zinc-700">Select all</label>
+            <div class="hidden transition transform origin-top-left absolute left-0 top-11 bg-white rounded-lg shadow-xl shadow-neutral-900/10 border border-neutral-200 md:w-[200px] w-full z-50 py-2 md:text-sm text-base font-medium text-neutral-600" data-railsui-dropdown-target="menu" data-transition-enter-from="opacity-0 scale-95" data-transition-enter-to="opacity-100 scale-100" data-transition-leave-from="opacity-100 scale-100" data-transition-leave-to="opacity-0 scale-95">
+              <div>
+                <a href="#" class="px-4 py-[.4rem] hover:text-neutral-900 block hover:bg-neutral-50">Item
+                  1</a>
+              </div>
+              <div>
+                <a href="#" class="px-4 py-[.4rem] hover:text-neutral-900 block hover:bg-neutral-50">Item
+                  2</a>
+              </div>
+              <div>
+                <a href="#" class="px-4 py-[.4rem] hover:text-neutral-900 block hover:bg-neutral-50">Item
+                  3</a>
               </div>
             </div>
-
-          </div>
-          <ul class="divide-y divide-gray-200">
-            <li class="flex flex-wrap items-center justify-start space-y-3 md:space-y-0 py-6 md:py-4">
-              <div class="w-10">
-                <input type="checkbox" class="rounded accent-blue-600 border-gray-400"
-                  data-railsui-select-all-target="checkbox" />
-              </div>
-              <div class="md:flex-1 w-full">
-                <div class="flex md:items-center items-start gap-3">
-                  <img src="https://randomuser.me/api/portraits/men/32.jpg" class="size-10 rounded-full" alt="">
-                  <h3 class="font-medium md:text-base text-lg leading-tight text-zinc-700 line-clamp-1">
-                    John Doe
-                  </h3>
-                </div>
-              </div>
-              <div class="md:w-2/12 w-1/3">
-
-                <span class="inline-block rounded-md bg-green-500 text-white text-xs font-medium px-1.5 py-0.5">
-                  Active
-                </span>
-              </div>
-              <div class="md:w-2/12 w-1/3">
-                Jan 20, 2022
-              </div>
-              <div class="md:w-2/12 w-1/3 flex items-center justify-end">
-                <a href="javascript:void(0);"
-                  class="text-blue-600 inline-block px-1 py-0.5 font-medium hover:underline">Edit</a>
-              </div>
-            </li>
-            <li class="flex flex-wrap items-center justify-start space-y-3 md:space-y-0 py-6 md:py-4">
-              <div class=" w-10">
-                <input type="checkbox" class="rounded accent-blue-600 border-gray-400"
-                  data-railsui-select-all-target="checkbox" />
-              </div>
-              <div class="md:flex-1 w-full">
-                <div class="flex md:items-center items-start gap-3">
-                  <img src="https://randomuser.me/api/portraits/men/37.jpg" class="size-10 rounded-full" alt="">
-                  <h3 class="font-medium md:text-base text-lg leading-tight text-zinc-700 line-clamp-1">
-                    Rich Miles
-                  </h3>
-                </div>
-              </div>
-              <div class="md:w-2/12 w-1/3">
-                <span class="inline-block rounded-md bg-green-500 text-white text-xs font-medium px-1.5 py-0.5">
-                  Active
-                </span>
-              </div>
-              <div class="md:w-2/12 w-1/3">
-                Jan 20, 2022
-              </div>
-              <div class="md:w-2/12 w-1/3 flex items-center justify-end">
-                <a href="javascript:void(0);"
-                  class="text-blue-600 inline-block px-1 py-0.5 font-medium hover:underline">Edit</a>
-              </div>
-            </li>
-            <li class="flex flex-wrap items-center justify-start space-y-3 md:space-y-0 py-6 md:py-4">
-              <div class="w-10">
-                <input type="checkbox" class="rounded accent-blue-600 border-gray-400"
-                  data-railsui-select-all-target="checkbox" />
-              </div>
-              <div class="md:flex-1 w-full">
-                <div class="flex md:items-center items-start gap-3">
-                  <img src="https://randomuser.me/api/portraits/women/21.jpg" class="size-10 rounded-full" alt="">
-                  <h3 class="font-medium md:text-base text-lg leading-tight text-zinc-700 line-clamp-1">
-                    Rose Mary
-                  </h3>
-                </div>
-              </div>
-              <div class="md:w-2/12 w-1/3">
-                <span class="inline-block rounded-md bg-green-500 text-white text-xs font-medium px-1.5 py-0.5">
-                  Active
-                </span>
-              </div>
-              <div class="md:w-2/12 w-1/3">
-                Jan 20, 2022
-              </div>
-              <div class="md:w-2/12 w-1/3 flex items-center justify-end">
-                <a href="javascript:void(0);"
-                  class="text-blue-600 inline-block px-1 py-0.5 font-medium hover:underline">Edit</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Tabs -->
-      <div id="tab" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
-        <div class="prose mb-6 prose-neutral">
-          <h2 class="text-2xl text-neutral-800 font-semibold mb-4">Tab</h2>
-        </div>
-
-        <div data-controller="railsui-tabs"
-          data-railsui-tabs-active-tab="py-3 px-4 border-b border-neutral-900 bg-white text-neutral-900"
-          data-railsui-tabs-inactive-tab="py-3 px-4 border-b border-neutral-300 bg-white text-neutral-600">
-          <div class="border-neutral-200 border-b text-neutral-600">
-            <nav role="navigation" class="-mb-px flex items-center gap-0">
-              <a href="#" data-railsui-tabs-target="tab" data-action="click->railsui-tabs#change"
-                class="py-3 px-4 border-b border-neutral-900 bg-white whitespace-nowrap">Activity</a>
-              <a href="#" data-railsui-tabs-target="tab" data-action="click->railsui-tabs#change"
-                class="py-3 px-4 border-b border-neutral-300 bg-white text-neutral-600">Account</a>
-              <a href="#" data-railsui-tabs-target="tab" data-action="click->railsui-tabs#change"
-                class="py-3 px-4 border-b border-neutral-300 bg-white text-neutral-600">Billing</a>
-              <a href="#" data-railsui-tabs-target="tab" data-action="click->railsui-tabs#change"
-                class="py-3 px-4 border-b border-neutral-300 bg-white text-neutral-700">Team</a>
-            </nav>
-          </div>
-          <div class="p-4 prose prose-neutral" data-railsui-tabs-target="panel">
-            <p>Some activities...</p>
-          </div>
-
-          <div class="hidden p-4 prose prose-neutral" data-railsui-tabs-target="panel">
-            <p>Account information...</p>
-          </div>
-
-          <div class="hidden p-4 prose prose-neutral" data-railsui-tabs-target="panel">
-            <p>Billing information...</p>
-          </div>
-          <div class="hidden p-4 prose prose-neutral" data-railsui-tabs-target="panel">
-            <p>Team information...</p>
           </div>
         </div>
-      </div>
 
-      <!-- Toast -->
-      <div id="toast" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
 
-        <style>
-          @keyframes toast-from-right {
-            0% {
-              transform: translateX(50%);
-              opacity: 0%;
-            }
+        <!-- Modals -->
+        <div id="modal" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
+          <div class="prose mb-6 prose-neutral">
+            <h2>Modal</h2>
+            <p>Fluid modals with the help of <a href="https://github.com/stimulus-use/stimulus-use">stimulus-use</a> for
+              transition effects.</p>
+          </div>
 
-            100% {
-              transform: translateX(0);
-              opacity: 100%;
-            }
-          }
+          <div data-controller="railsui-modal">
+            <button type="button" data-action="click->railsui-modal#open" class="py-2 px-3 font-medium text-sm text-center rounded-md focus:ring-4 transition ease-in-out duration-300 no-underline inline-flex items-center justify-center bg-white hover:bg-white text-neutral-700 focus:ring-neutral-100 border border-neutral-300 shadow-sm hover:border-neutral-400 shadow-neutral-300/20 hover:shadow-neutral-300/50 gap-2" tabindex="0">
+              Open modal
+            </button>
 
-          @keyframes toast-from-left {
-            0% {
-              transform: translateX(-50%);
-              opacity: 0%;
-            }
+            <div aria-labelledby="modal-title" aria-modal="true" data-railsui-modal-target="container" data-action="keyup@window->railsui-modal#closeWithEsc" class="hidden fixed inset-0 z-50 overflow-y-auto">
+              <div class="h-screen w-full relative flex items-center justify-center">
+                <div data-railsui-modal-target="content" data-transition-enter-active="transition ease-out duration-300" data-transition-enter-from="transform opacity-0 scale-95" data-transition-enter-to="transform opacity-100 scale-100" data-transition-leave-active="transition ease-in duration-300" data-transition-leave-from="transform opacity-100 scale-100" data-transition-leave-to="transform opacity-0 scale-95" class="hidden rounded-xl shadow-xl max-w-lg bg-white m-1 p-8 prose origin-bottom mx-auto">
+                  <h3 id="modal-title" class="text-2xl font-bold text-neutral-900 tracking-tight">
+                    Modal Title</h3>
 
-            100% {
-              transform: translateX(0);
-              opacity: 100%;
-            }
-          }
-
-          .toast-from-right {
-            animation: toast-from-right 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-          }
-
-          .toast-from-left {
-            animation: toast-from-left 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-          }
-        </style>
-        <div class="prose prose-neutral mb-3 max-w-full">
-          <h2>Toast</h2>
-          <p>Use toasts to deliver real-time updates to a user without disrupting their flow.</p>
-          <p>There is a required custom CSS animation class designed specifically for toasts opening from the right or
-            left via
-            the
-            <code>tailwind.config.js</code> file.
-          </p>
-
-        </div>
-
-        <div
-          class="relative bg-neutral-100 border-neutral-200 border rounded-b-xl md:p-10 p-6 w-full min-h-[280px] overflow-hidden">
-          <div aria-live="assertive"
-            class="pointer-events-none absolute flex items-center justify-end px-4 py-6 sm:p-6 top-0 right-0 left-0 w-full toast-from-right"
-            data-controller="railsui-toast" data-railsui-toast-trigger-on-load-value="true">
-            <div
-              class="pointer-events-auto w-full max-w-sm overflow-hidden rounded-md bg-white shadow-xl ring-1 ring-black ring-opacity-5">
-              <div class="p-4">
-                <div class="flex items-start">
-                  <div class="flex-shrink-0">
-                    <svg class="stroke-current size-5 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="24"
-                      height="24" viewBox="0 0 24 24">
-                      <title>hand-thumb-up</title>
-                      <g fill="none">
-                        <path
-                          d="M6.633 10.5c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 0 1 2.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 0 0 .322-1.672V3a.75.75 0 0 1 .75-.75A2.25 2.25 0 0 1 16.5 4.5c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 0 1-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 0 0-1.423-.23H5.904M14.25 9h2.25M5.904 18.75c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 0 1-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 10.203 4.167 9.75 5 9.75h1.053c.472 0 .745.556.5.96a8.958 8.958 0 0 0-1.302 4.665c0 1.194.232 2.333.654 3.375z"
-                          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                      </g>
-                    </svg>
+                  <div class="prose prose-neutral mt-2 mb-6">
+                    <p>This modal contains important information about the actions you are about to take. Make sure
+                      you have read all the instructions carefully.
+                    </p>
                   </div>
-                  <div class="ml-3 w-0 flex-1 pt-0.5">
-                    <p class="text-sm font-medium text-neutral-900">Successfully liked!</p>
-                    <p class="mt-1 text-sm text-neutral-500">John Doe has been notified.</p>
+
+                  <div class="flex justify-end items-center flex-wrap gap-4">
+                    <button class="py-2 px-3 font-medium text-sm text-center rounded-md focus:ring-4 transition ease-in-out duration-300 no-underline inline-flex items-center justify-center bg-white hover:bg-white text-neutral-700 focus:ring-neutral-100 border border-neutral-300 shadow-sm hover:border-neutral-400 shadow-neutral-300/20 hover:shadow-neutral-300/50" data-action="click->railsui-modal#close">Close</button>
                   </div>
-                  <div class="ml-4 flex flex-shrink-0">
-                    <button type="button"
-                      class="inline-flex rounded-sm bg-white text-neutral-400 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-50"
-                      data-action="click->railsui-toast#hide">
-                      <span class="sr-only">Close</span>
-                      <svg class="size-5 stroke-current pointer-events-none" xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" viewBox="0 0 24 24">
-                        <title>x-mark</title>
-                        <path d="M6 18L18 6M6 6l12 12" stroke-width="1.5" stroke-linecap="round"
-                          stroke-linejoin="round">
-                        </path>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Password Toggle -->
+        <div id="password_toggle" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
+          <div class="prose mb-6 prose-neutral max-w-full">
+            <h2 class="text-2xl text-neutral-800 font-semibold mb-4">Password Toggle</h2>
+            <p>Toggles password visibility in input fields with accessible ARIA support—perfect for login or signup forms.</p>
+          </div>
+
+          <div data-controller="railsui-password-toggle" class="relative">
+            <input
+              type="password"
+              class="w-full pr-10 border border-neutral-300 rounded shadow-xs rounded-lg"
+              data-railsui-password-toggle-target="input"
+              autocomplete="current-password"
+              value="samplepassword"
+            />
+
+            <button
+              type="button"
+              data-railsui-password-toggle-target="toggle"
+              data-action="click->railsui-password-toggle#toggle"
+              class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-700"
+            >
+
+              <!-- eye open -->
+              <svg data-railsui-password-toggle-target="iconShow" class="stroke-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>eye</title><g fill="none"><path d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+
+              <!-- eye close -->
+              <svg data-railsui-password-toggle-target="iconHide" class="stroke-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>eye-slash</title><g fill="none"><path d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 0 1-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 0 0-4.243-4.243m4.242 4.242L9.88 9.88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Range Slider -->
+        <div id="range" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
+          <div class="prose mb-6 prose-neutral max-w-full">
+            <h2 class="text-2xl text-neutral-800 font-semibold mb-4">Range slider</h2>
+            <p>Range sliders aren't too easy to customize. With custom CSS variables and a dash of JavaScript from the
+              range controller we can make this more branded.</p>
+          </div>
+          <style>
+            /* Requires range_controller.js */
+            .form-input-range {
+              position: relative;
+              background: transparent;
+              appearance: none;
+
+              --range-fill: 0;
+            }
+
+            .form-input-range::-webkit-slider-thumb {
+              appearance: none;
+              border: 2px solid white;
+              width: 16px;
+              height: 16px;
+              border-radius: 100%;
+              background: white;
+              cursor: pointer;
+              position: relative;
+              top: -4.5px;
+              box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+              outline: 1px solid rgba(0, 0, 0, 0.25);
+            }
+
+            .form-input-range::-moz-range-thumb {
+              appearance: none;
+              border: 2px solid white;
+              width: 16px;
+              height: 16px;
+              border-radius: 100%;
+              background: white;
+              cursor: pointer;
+              position: relative;
+              top: -4.5px;
+              box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+              outline: 1px solid rgba(0, 0, 0, 0.25);
+            }
+
+            .form-input-range::-ms-thumb {
+              appearance: none;
+              border: 2px solid white;
+              width: 16px;
+              height: 16px;
+              border-radius: 100%;
+              background: white;
+              cursor: pointer;
+              position: relative;
+              top: -4.5px;
+              box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+              outline: 1px solid rgba(0, 0, 0, 0.25);
+            }
+
+            .form-input-range::-webkit-slider-runnable-track {
+              width: 100%;
+              height: 4px;
+              border-radius: 10px;
+              cursor: pointer;
+              background: linear-gradient(to right,
+                  #22c55e var(--range-fill),
+                  #d1d5db var(--range-fill));
+
+              @media (prefers-color-scheme: dark) {
+                background: linear-gradient(to right,
+                    #22c55e var(--range-fill),
+                    #374151 var(--range-fill));
+              }
+            }
+
+            .form-input-range::-moz-range-track {
+              width: 100%;
+              height: 4px;
+              border-radius: 10px;
+              cursor: pointer;
+              background: linear-gradient(to right,
+                  #22c55e var(--range-fill),
+                  #d1d5db var(--range-fill));
+
+              @media (prefers-color-scheme: dark) {
+                background: linear-gradient(to right,
+                    #22c55e var(--range-fill),
+                    #374151 var(--range-fill));
+              }
+            }
+
+            .form-input-range::-ms-track {
+              width: 100%;
+              height: 4px;
+              border-radius: 10px;
+              cursor: pointer;
+              background: linear-gradient(to right,
+                  #22c55e var(--range-fill),
+                  #d1d5db var(--range-fill));
+
+              @media (prefers-color-scheme: dark) {
+                background: linear-gradient(to right,
+                    #22c55e var(--range-fill),
+                    #374151 var(--range-fill));
+              }
+            }
+          </style>
+          <div class="form-group" data-controller="railsui-range">
+            <label for="volume" class="text-sm font-medium mb-1 block">Volume</label>
+            <input type="range" id="volume" class="form-input-range" data-railsui-range-target="range" data-action="input->railsui-range#onInput" min="2" max="100" value="25" />
+          </div>
+        </div>
+
+        <!-- Read more -->
+        <div id="read_more" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
+          <div class="prose prose-neutral mb-6">
+            <h2>Read more</h2>
+          </div>
+
+          <div class="prose prose-gray mb-4" data-controller="railsui-read-more" data-railsui-read-more-more-text-value="Read more" data-railsui-read-more-less-text-value="Read less" data-railsui-read-more-max-length-value="150">
+            <p>
+              <span data-railsui-read-more-target="content">In this chat, we discuss our experiences and insights from
+                the
+                creative writing course. We share our thoughts on various writing prompts, exchange feedback on our
+                stories, and encourage each other to explore new ideas and styles. Whether you're a beginner or an
+                experienced writer, this space is dedicated to fostering creativity and collaboration among aspiring
+                authors.</span>
+              <button data-railsui-read-more-target="button" data-action="railsui-read-more#toggle" class="font-medium underline">
+                Read more
+              </button>
+            </p>
+          </div>
+        </div>
+
+        <!-- Select all -->
+        <div id="select_all" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
+          <div class="prose mb-6 prose-neutral max-w-full">
+            <h2 class="text-2xl text-neutral-800 font-semibold mb-4">Select all</h2>
+            <p>Add a select all checkbox to a series of child checkboxes. If one or more of the children are checked
+              then
+              the parent checkbox becomes <code>indeterminate</code> until the rest are checked or unchecked entirely.
+            </p>
+          </div>
+
+          <div data-controller="railsui-select-all">
+            <div class="flex items-center justify-start">
+              <div class="md:w-12 mb-3 md:mb-0">
+                <div class="flex items-center gap-3">
+                  <input type="checkbox" class="rounded accent-blue-600 border-gray-400" name="all_users" id="all_users" data-railsui-select-all-target="selectAll" />
+                  <label for="all_users" class="form-label mb-0 md:hidden block text-zinc-700">Select all</label>
+                </div>
+              </div>
+
+            </div>
+            <ul class="divide-y divide-gray-200">
+              <li class="flex flex-wrap items-center justify-start space-y-3 md:space-y-0 py-6 md:py-4">
+                <div class="w-10">
+                  <input type="checkbox" class="rounded accent-blue-600 border-gray-400" data-railsui-select-all-target="checkbox" />
+                </div>
+                <div class="md:flex-1 w-full">
+                  <div class="flex md:items-center items-start gap-3">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" class="size-10 rounded-full" alt="">
+                    <h3 class="font-medium md:text-base text-lg leading-tight text-zinc-700 line-clamp-1">
+                      John Doe
+                    </h3>
+                  </div>
+                </div>
+                <div class="md:w-2/12 w-1/3">
+
+                  <span class="inline-block rounded-md bg-green-500 text-white text-xs font-medium px-1.5 py-0.5">
+                    Active
+                  </span>
+                </div>
+                <div class="md:w-2/12 w-1/3">
+                  Jan 20, 2022
+                </div>
+                <div class="md:w-2/12 w-1/3 flex items-center justify-end">
+                  <a href="javascript:void(0);" class="text-blue-600 inline-block px-1 py-0.5 font-medium hover:underline">Edit</a>
+                </div>
+              </li>
+              <li class="flex flex-wrap items-center justify-start space-y-3 md:space-y-0 py-6 md:py-4">
+                <div class=" w-10">
+                  <input type="checkbox" class="rounded accent-blue-600 border-gray-400" data-railsui-select-all-target="checkbox" />
+                </div>
+                <div class="md:flex-1 w-full">
+                  <div class="flex md:items-center items-start gap-3">
+                    <img src="https://randomuser.me/api/portraits/men/37.jpg" class="size-10 rounded-full" alt="">
+                    <h3 class="font-medium md:text-base text-lg leading-tight text-zinc-700 line-clamp-1">
+                      Rich Miles
+                    </h3>
+                  </div>
+                </div>
+                <div class="md:w-2/12 w-1/3">
+                  <span class="inline-block rounded-md bg-green-500 text-white text-xs font-medium px-1.5 py-0.5">
+                    Active
+                  </span>
+                </div>
+                <div class="md:w-2/12 w-1/3">
+                  Jan 20, 2022
+                </div>
+                <div class="md:w-2/12 w-1/3 flex items-center justify-end">
+                  <a href="javascript:void(0);" class="text-blue-600 inline-block px-1 py-0.5 font-medium hover:underline">Edit</a>
+                </div>
+              </li>
+              <li class="flex flex-wrap items-center justify-start space-y-3 md:space-y-0 py-6 md:py-4">
+                <div class="w-10">
+                  <input type="checkbox" class="rounded accent-blue-600 border-gray-400" data-railsui-select-all-target="checkbox" />
+                </div>
+                <div class="md:flex-1 w-full">
+                  <div class="flex md:items-center items-start gap-3">
+                    <img src="https://randomuser.me/api/portraits/women/21.jpg" class="size-10 rounded-full" alt="">
+                    <h3 class="font-medium md:text-base text-lg leading-tight text-zinc-700 line-clamp-1">
+                      Rose Mary
+                    </h3>
+                  </div>
+                </div>
+                <div class="md:w-2/12 w-1/3">
+                  <span class="inline-block rounded-md bg-green-500 text-white text-xs font-medium px-1.5 py-0.5">
+                    Active
+                  </span>
+                </div>
+                <div class="md:w-2/12 w-1/3">
+                  Jan 20, 2022
+                </div>
+                <div class="md:w-2/12 w-1/3 flex items-center justify-end">
+                  <a href="javascript:void(0);" class="text-blue-600 inline-block px-1 py-0.5 font-medium hover:underline">Edit</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <div id="tab" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
+          <div class="prose mb-6 prose-neutral">
+            <h2 class="text-2xl text-neutral-800 font-semibold mb-4">Tab</h2>
+          </div>
+
+          <div data-controller="railsui-tabs" data-railsui-tabs-active-tab="py-3 px-4 border-b border-neutral-900 bg-white text-neutral-900" data-railsui-tabs-inactive-tab="py-3 px-4 border-b border-neutral-300 bg-white text-neutral-600">
+            <div class="border-neutral-200 border-b text-neutral-600">
+              <nav role="navigation" class="-mb-px flex items-center gap-0">
+                <a href="#" data-railsui-tabs-target="tab" data-action="click->railsui-tabs#change" class="py-3 px-4 border-b border-neutral-900 bg-white whitespace-nowrap">Activity</a>
+                <a href="#" data-railsui-tabs-target="tab" data-action="click->railsui-tabs#change" class="py-3 px-4 border-b border-neutral-300 bg-white text-neutral-600">Account</a>
+                <a href="#" data-railsui-tabs-target="tab" data-action="click->railsui-tabs#change" class="py-3 px-4 border-b border-neutral-300 bg-white text-neutral-600">Billing</a>
+                <a href="#" data-railsui-tabs-target="tab" data-action="click->railsui-tabs#change" class="py-3 px-4 border-b border-neutral-300 bg-white text-neutral-700">Team</a>
+              </nav>
+            </div>
+            <div class="p-4 prose prose-neutral" data-railsui-tabs-target="panel">
+              <p>Some activities...</p>
+            </div>
+
+            <div class="hidden p-4 prose prose-neutral" data-railsui-tabs-target="panel">
+              <p>Account information...</p>
+            </div>
+
+            <div class="hidden p-4 prose prose-neutral" data-railsui-tabs-target="panel">
+              <p>Billing information...</p>
+            </div>
+            <div class="hidden p-4 prose prose-neutral" data-railsui-tabs-target="panel">
+              <p>Team information...</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Toast -->
+        <div id="toast" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
+
+          <style>
+            @keyframes toast-from-right {
+              0% {
+                transform: translateX(50%);
+                opacity: 0%;
+              }
+
+              100% {
+                transform: translateX(0);
+                opacity: 100%;
+              }
+            }
+
+            @keyframes toast-from-left {
+              0% {
+                transform: translateX(-50%);
+                opacity: 0%;
+              }
+
+              100% {
+                transform: translateX(0);
+                opacity: 100%;
+              }
+            }
+
+            .toast-from-right {
+              animation: toast-from-right 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            }
+
+            .toast-from-left {
+              animation: toast-from-left 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            }
+          </style>
+          <div class="prose prose-neutral mb-3 max-w-full">
+            <h2>Toast</h2>
+            <p>Use toasts to deliver real-time updates to a user without disrupting their flow.</p>
+            <p>There is a required custom CSS animation class designed specifically for toasts opening from the right or
+              left via
+              the
+              <code>tailwind.config.js</code> file.
+            </p>
+
+          </div>
+
+          <div class="relative bg-neutral-100 border-neutral-200 border rounded-b-xl md:p-10 p-6 w-full min-h-[280px] overflow-hidden">
+            <div aria-live="assertive" class="pointer-events-none absolute flex items-center justify-end px-4 py-6 sm:p-6 top-0 right-0 left-0 w-full toast-from-right" data-controller="railsui-toast" data-railsui-toast-trigger-on-load-value="true">
+              <div class="pointer-events-auto w-full max-w-sm overflow-hidden rounded-md bg-white shadow-xl ring-1 ring-black ring-opacity-5">
+                <div class="p-4">
+                  <div class="flex items-start">
+                    <div class="flex-shrink-0">
+                      <svg class="stroke-current size-5 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <title>hand-thumb-up</title>
+                        <g fill="none">
+                          <path d="M6.633 10.5c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 0 1 2.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 0 0 .322-1.672V3a.75.75 0 0 1 .75-.75A2.25 2.25 0 0 1 16.5 4.5c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 0 1-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 0 0-1.423-.23H5.904M14.25 9h2.25M5.904 18.75c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 0 1-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 10.203 4.167 9.75 5 9.75h1.053c.472 0 .745.556.5.96a8.958 8.958 0 0 0-1.302 4.665c0 1.194.232 2.333.654 3.375z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
                       </svg>
-                    </button>
+                    </div>
+                    <div class="ml-3 w-0 flex-1 pt-0.5">
+                      <p class="text-sm font-medium text-neutral-900">Successfully liked!</p>
+                      <p class="mt-1 text-sm text-neutral-500">John Doe has been notified.</p>
+                    </div>
+                    <div class="ml-4 flex flex-shrink-0">
+                      <button type="button" class="inline-flex rounded-sm bg-white text-neutral-400 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-50" data-action="click->railsui-toast#hide">
+                        <span class="sr-only">Close</span>
+                        <svg class="size-5 stroke-current pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                          <title>x-mark</title>
+                          <path d="M6 18L18 6M6 6l12 12" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                          </path>
+                        </svg>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
 
-        <div class="prose prose-neutral mb-3 mt-6">
-          <h4>Example markup</h4>
-        </div>
-        <div class="not-prose mt-6">
-          <pre class="whitespace-pre-wrap"><code class="px-6 py-4 rounded-xl language-html overflow-auto whitespace-pre-wrap w-full">
+          <div class="prose prose-neutral mb-3 mt-6">
+            <h4>Example markup</h4>
+          </div>
+          <div class="not-prose mt-6">
+            <pre class="whitespace-pre-wrap"><code class="px-6 py-4 rounded-xl language-html overflow-auto whitespace-pre-wrap w-full">
 &lt;!-- Toast from right example --&gt;
 &lt;div aria-live=&quot;assertive&quot;
 class=&quot;pointer-events-none absolute top-0 right-0 left-0 w-full toast-from-right&quot;
@@ -934,59 +854,50 @@ module.exports = {
   },
   plugins: [],
 }</code></pre>
+          </div>
+
         </div>
 
-      </div>
 
+        <!-- Toggle -->
+        <div id="toggle" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
+          <div class="prose prose-neutral mb-6">
+            <h2>Toggle</h2>
+          </div>
 
-      <!-- Toggle -->
-      <div id="toggle" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
-        <div class="prose prose-neutral mb-6">
-          <h2>Toggle</h2>
-        </div>
-
-        <div data-controller="railsui-toggle">
-          <button type="button" data-action="click->railsui-toggle#toggle:prevent touch->railsui-toggle#toggle:prevent"
-            class="py-2 px-3 font-medium text-sm text-center rounded-md focus:ring-4 transition ease-in-out duration-300 no-underline inline-flex items-center justify-center bg-white hover:bg-white text-neutral-700 focus:ring-neutral-100 border border-neutral-300 shadow-sm hover:border-neutral-400 shadow-neutral-300/20 hover:shadow-neutral-300/50 gap-2">
-            Toggle me
-          </button>
-          <div class="hidden origin-top mt-4" data-railsui-toggle-target="toggleable"
-            data-transition-enter-active="transition ease-out duration-200"
-            data-transition-enter-from="transform opacity-0" data-transition-enter-to="transform opacity-100"
-            data-transition-leave-active="transition ease-in duration-200"
-            data-transition-leave-from="transform opacity-100" data-transition-leave-to="transform opacity-0">
-            <div class="p-4 bg-orange-50 rounded-xl text-orange-800">
-              <p>Why hello there...</p>
+          <div data-controller="railsui-toggle">
+            <button type="button" data-action="click->railsui-toggle#toggle:prevent touch->railsui-toggle#toggle:prevent" class="py-2 px-3 font-medium text-sm text-center rounded-md focus:ring-4 transition ease-in-out duration-300 no-underline inline-flex items-center justify-center bg-white hover:bg-white text-neutral-700 focus:ring-neutral-100 border border-neutral-300 shadow-sm hover:border-neutral-400 shadow-neutral-300/20 hover:shadow-neutral-300/50 gap-2">
+              Toggle me
+            </button>
+            <div class="hidden origin-top mt-4" data-railsui-toggle-target="toggleable" data-transition-enter-active="transition ease-out duration-200" data-transition-enter-from="transform opacity-0" data-transition-enter-to="transform opacity-100" data-transition-leave-active="transition ease-in duration-200" data-transition-leave-from="transform opacity-100" data-transition-leave-to="transform opacity-0">
+              <div class="p-4 bg-orange-50 rounded-xl text-orange-800">
+                <p>Why hello there...</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Tooltip -->
-      <div id="tooltip" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
-        <div class="prose prose-neutral mb-6">
-          <h2>Tooltip</h2>
-          <p>Drop-in tooltips with the help of <a href="https://atomiks.github.io/tippyjs/" target="_blank">tippy.js</a>
-          </p>
-        </div>
+        <!-- Tooltip -->
+        <div id="tooltip" class="md:p-10 p-6 rounded-xl border border-neutral-300/80 bg-white">
+          <div class="prose prose-neutral mb-6">
+            <h2>Tooltip</h2>
+            <p>Drop-in tooltips with the help of <a href="https://atomiks.github.io/tippyjs/" target="_blank">tippy.js</a>
+            </p>
+          </div>
 
 
-        <div class="flex items-center gap-3">
-          <button data-controller="railsui-tooltip" data-railsui-tooltip-content-value="Hi, from the tips of tools"
-            class="py-2 px-3 font-medium text-sm text-center rounded-md focus:ring-4 transition ease-in-out duration-300 no-underline inline-flex items-center justify-center bg-white hover:bg-white text-neutral-700 focus:ring-neutral-100 border border-neutral-300 shadow-sm hover:border-neutral-400 shadow-neutral-300/20 hover:shadow-neutral-300/50 gap-2">Hover
-            here</button>
-          <button data-controller="railsui-tooltip"
-            data-railsui-tooltip-content-value="We raised over $1 billion to engineer the greatest tooltip of our lives. <strong>What's super cool</strong> is that HTML can be embedded into the tooltip for max emphasis."
-            data-railsui-tooltip-allow-html-value="true"
-            class="py-2 px-3 font-medium text-sm text-center rounded-md focus:ring-4 transition ease-in-out duration-300 no-underline
+          <div class="flex items-center gap-3">
+            <button data-controller="railsui-tooltip" data-railsui-tooltip-content-value="Hi, from the tips of tools" class="py-2 px-3 font-medium text-sm text-center rounded-md focus:ring-4 transition ease-in-out duration-300 no-underline inline-flex items-center justify-center bg-white hover:bg-white text-neutral-700 focus:ring-neutral-100 border border-neutral-300 shadow-sm hover:border-neutral-400 shadow-neutral-300/20 hover:shadow-neutral-300/50 gap-2">Hover
+              here</button>
+            <button data-controller="railsui-tooltip" data-railsui-tooltip-content-value="We raised over $1 billion to engineer the greatest tooltip of our lives. <strong>What's super cool</strong> is that HTML can be embedded into the tooltip for max emphasis." data-railsui-tooltip-allow-html-value="true" class="py-2 px-3 font-medium text-sm text-center rounded-md focus:ring-4 transition ease-in-out duration-300 no-underline
             inline-flex items-center justify-center bg-white hover:bg-white text-neutral-700 focus:ring-neutral-100 border border-neutral-300 shadow-sm hover:border-neutral-400 shadow-neutral-300/20 hover:shadow-neutral-300/50 gap-2">and
-            here</button>
+              here</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  </div>
-  </div>
-</body>
+    </div>
+    </div>
+  </body>
 
 </html>

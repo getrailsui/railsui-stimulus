@@ -42,6 +42,7 @@ import {
   RailsuiDateRangePicker,
   RailsuiDropdown,
   RailsuiModal,
+  RailsuiPasswordToggle,
   RailsuiRange,
   RailsuiReadMore,
   RailsuiSelectAll,
@@ -57,6 +58,7 @@ application.register('railsui-combobox', RailsuiCombobox)
 application.register('railsui-date-range-picker', RailsuiDateRangePicker)
 application.register('railsui-dropdown', RailsuiDropdown)
 application.register('railsui-modal', RailsuiModal)
+application.register('railsui-password-toggle', RailsuiPasswordToggle)
 application.register('railsui-range', RailsuiRange)
 application.register('railsui-read-more', RailsuiReadMore)
 application.register('railsui-select-all', RailsuiSelectAll)
@@ -74,6 +76,7 @@ application.register('railsui-tooltip', RailsuiTooltip)
 - [Date range picker](docs/date_range_picker.md)
 - [Dropdown](docs/dropdown.md)
 - [Modal](docs/modal.md)
+- [Password Toggle](docs/password_toggle.md)
 - [Range](docs/range.md)
 - [Read more](docs/read_more.md)
 - [Select all](docs/select_all.md)

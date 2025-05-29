@@ -1,6 +1,15 @@
 # Dropdown
 
-Animated dropdowns with the help of [stimulus-use](https://github.com/stimulus-use/stimulus-use)
+Accessible, animated dropdowns powered by [Stimulus](https://stimulus.hotwired.dev/) and [stimulus-use](https://github.com/stimulus-use/stimulus-use). Bring your own Tailwind styles and we'll handle the behavior.
+
+## 💡 Features
+
+- Smooth transition animations (via stimulus-use)
+- Closes on outside click
+- Closes on Escape key
+- Automatically handles aria-expanded / aria-hidden for accessibility
+- Fully styleable with Tailwind CSS
+
 
 ## Usage
 
@@ -9,9 +18,6 @@ import { RailsuiDropdown } from 'railsui-stimulus'
 application.register('railsui-dropdown', RailsuiDropdown)
 ```
 
-### Example
-
-A dropdown requires a little finesse. We use stimulus-use to trigger animations for more fluid user experience. You'll need to adjust the dropdown to match your styles, position, and tastes for transition effects. Clicking outside of the dropdown closes it.
 
 ```html
 <div data-controller="railsui-dropdown" class="relative md:inline-block block md:w-auto w-full">
@@ -39,6 +45,7 @@ A dropdown requires a little finesse. We use stimulus-use to trigger animations 
       </g>
     </svg>
   </button>
+
   <div
     class="hidden transition transform origin-top-left absolute left-0 top-11 bg-white rounded-lg shadow-xl shadow-neutral-900/10 border border-neutral-200 md:w-[200px] w-full z-50 py-2 dark:bg-neutral-700 dark:shadow-neutral-900/50 dark:border-neutral-500/60 md:text-sm text-base font-medium text-neutral-600 dark:text-neutral-200"
     data-railsui-dropdown-target="menu"
@@ -48,25 +55,13 @@ A dropdown requires a little finesse. We use stimulus-use to trigger animations 
     data-transition-leave-to="opacity-0 scale-95"
   >
     <div>
-      <a
-        href="#"
-        class="px-4 py-[.4rem] hover:text-neutral-900 block dark:hover:text-neutral-900 hover:bg-neutral-50"
-        >Item 1</a
-      >
+      <a href="#" class="px-4 py-[.4rem] block hover:bg-neutral-50 dark:hover:bg-neutral-600 dark:hover:text-white">Item 1</a>
     </div>
     <div>
-      <a
-        href="#"
-        class="px-4 py-[.4rem] hover:text-neutral-900 block dark:hover:text-neutral-900 hover:bg-neutral-50"
-        >Item 2</a
-      >
+      <a href="#" class="px-4 py-[.4rem] block hover:bg-neutral-50 dark:hover:bg-neutral-600 dark:hover:text-white">Item 2</a>
     </div>
     <div>
-      <a
-        href="#"
-        class="px-4 py-[.4rem] hover:text-neutral-900 block dark:hover:text-neutral-900 hover:bg-neutral-50"
-        >Item 3</a
-      >
+      <a href="#" class="px-4 py-[.4rem] block hover:bg-neutral-50 dark:hover:bg-neutral-600 dark:hover:text-white">Item 3</a>
     </div>
   </div>
 </div>
