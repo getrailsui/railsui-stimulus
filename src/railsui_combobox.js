@@ -174,19 +174,23 @@ export default class extends Controller {
       this.activeIndex = index // Update active index
     }
 
-    this.updateDisplay(option.textContent.trim())
+    const value = option.dataset.value || option.textContent.trim()
+    const displayText = option.textContent.trim()
+    this.updateDisplay(displayText, value)
   }
 
   selectOptionByIndex(index) {
     const visibleOptions = this.getVisibleOptions()
     const option = visibleOptions[index]
-    this.updateDisplay(option.textContent.trim())
+    const value = option.dataset.value || option.textContent.trim()
+    const displayText = option.textContent.trim()
+    this.updateDisplay(displayText, value)
   }
 
-  updateDisplay(value) {
-    this.textTarget.textContent = value
+  updateDisplay(displayText, value = null) {
+    this.textTarget.textContent = displayText
     this.hideDropdown()
-    this.hiddenInputTarget.value = value
+    this.hiddenInputTarget.value = value || displayText
   }
 
   getVisibleOptions() {
