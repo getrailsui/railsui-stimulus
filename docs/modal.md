@@ -9,6 +9,23 @@ import { RailsuiModal } from 'railsui-stimulus'
 application.register('railsui-modal', RailsuiModal)
 ```
 
+### Teleport Feature
+
+The modal supports an optional teleport feature that moves the modal container to the document body. This is useful when the modal is nested inside elements with `overflow: hidden` or other containing styles that would clip or constrain the modal.
+
+To enable teleporting, add the `data-railsui-modal-teleport-value="true"` attribute to your modal controller:
+
+```html
+<div data-controller="railsui-modal" data-railsui-modal-teleport-value="true">
+  <!-- modal content -->
+</div>
+```
+
+When teleport is enabled:
+- The modal container is moved to `document.body` when the controller connects
+- The modal is returned to its original position when the controller disconnects
+- This prevents overflow and z-index issues in complex layouts
+
 ### Example
 
 ```html
