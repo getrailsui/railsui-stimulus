@@ -3,8 +3,20 @@ import { useTransition, useClickOutside } from 'stimulus-use'
 
 export default class extends Controller {
   static targets = ['container', 'content']
+  static values = { 
+    teleport: { type: Boolean, default: false }
+  }
 
   connect() {
+    // Store original parent for cleanup
+    this.originalParent = this.containerTarget.parentNode
+    this.originalNextSibling = this.containerTarget.nextSibling
+    
+    // Teleport to body if enabled
+    if (this.teleportValue && this.containerTarget.parentNode !== document.body) {
+      document.body.appendChild(this.containerTarget)
+    }
+
     useTransition(this, {
       element: this.contentTarget
     })
@@ -52,5 +64,14 @@ export default class extends Controller {
 
   disconnect() {
     this.toggleTransition()
+    
+    // Return modal to original position if it was teleported
+    if (this.teleportValue && this.originalParent) {
+      if (this.originalNextSibling) {
+        this.originalParent.insertBefore(this.containerTarget, this.originalNextSibling)
+      } else {
+        this.originalParent.appendChild(this.containerTarget)
+      }
+    }
   }
 }
