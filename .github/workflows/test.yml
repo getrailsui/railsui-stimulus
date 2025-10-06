@@ -1,0 +1,99 @@
+name: Test Build Outputs
+
+on:
+  push:
+    branches: [ main, support-importmaps ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Bun
+      uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest
+
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies
+      run: bun install
+
+    - name: Build all outputs
+      run: bun run build
+
+    - name: Run tests
+      run: bun run test
+
+    - name: Check bundled ESM file size
+      run: |
+        SIZE=$(wc -c < dist/railsui-stimulus.module.js)
+        echo "Bundled ESM size: $SIZE bytes"
+        if [ $SIZE -lt 50000 ]; then
+          echo "Error: Bundled ESM file is too small (< 50KB)"
+          exit 1
+        fi
+
+    - name: Check bundled CJS file size
+      run: |
+        SIZE=$(wc -c < dist/railsui-stimulus.cjs)
+        echo "Bundled CJS size: $SIZE bytes"
+        if [ $SIZE -lt 50000 ]; then
+          echo "Error: Bundled CJS file is too small (< 50KB)"
+          exit 1
+        fi
+
+    - name: Count importmap files
+      run: |
+        COUNT=$(ls -1 dist/importmap/*.js | grep -v ".map" | wc -l)
+        echo "Importmap JS files: $COUNT"
+        if [ $COUNT -ne 15 ]; then
+          echo "Error: Expected 15 importmap JS files, found $COUNT"
+          exit 1
+        fi
+
+    - name: Verify importmap dependencies are external
+      run: |
+        if ! grep -q 'import tippy from "tippy.js"' dist/importmap/railsui_tooltip.js; then
+          echo "Error: tippy.js should be external in importmap build"
+          exit 1
+        fi
+        if ! grep -q 'import flatpickr from "flatpickr"' dist/importmap/railsui_date_range_picker.js; then
+          echo "Error: flatpickr should be external in importmap build"
+          exit 1
+        fi
+        echo "✓ Dependencies are correctly external in importmap build"
+
+    - name: Verify bundled build includes dependencies
+      run: |
+        if grep -q 'import tippy from "tippy.js"' dist/railsui-stimulus.module.js; then
+          echo "Error: tippy.js should be bundled, not external"
+          exit 1
+        fi
+        if grep -q 'import flatpickr from "flatpickr"' dist/railsui-stimulus.module.js; then
+          echo "Error: flatpickr should be bundled, not external"
+          exit 1
+        fi
+        echo "✓ Dependencies are correctly bundled in ESM build"
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      if: matrix.node-version == '20.x'
+      with:
+        name: build-outputs
+        path: |
+          dist/
+          !dist/**/*.map
+        retention-days: 7

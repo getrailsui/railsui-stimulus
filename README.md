@@ -2,6 +2,8 @@
 
 # Rails UI Stimulus.js Components
 
+![Test Status](https://github.com/getrailsui/railsui-stimulus/actions/workflows/test.yml/badge.svg)
+
 A suite of Stimulus.js components built with Tailwind CSS for use in [Rails UI](https://railsui.com). You can use these independently of Rails UI.
 
 [View demo](https://getrailsui.github.io/railsui-stimulus/)

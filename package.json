@@ -35,7 +35,9 @@
     "build": "bun run build-esm && bun run build-cjs && bun run build-importmap",
     "build-cjs": "esbuild src/index.js --format=cjs --target=es2020 --minify --bundle --sourcemap=external --external:@hotwired/stimulus --outfile=dist/railsui-stimulus.cjs",
     "build-esm": "esbuild src/index.js --format=esm --target=es2020 --minify --bundle --sourcemap=external --external:@hotwired/stimulus --outfile=dist/railsui-stimulus.module.js",
-    "build-importmap": "node esbuild.importmap.js"
+    "build-importmap": "node esbuild.importmap.js",
+    "test": "node test/build.test.js",
+    "test:ci": "bun run build && bun run test"
   },
   "license": "MIT",
   "dependencies": {
