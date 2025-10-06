@@ -34,7 +34,7 @@ pin "railsui-stimulus", to: "https://unpkg.com/railsui-stimulus@1.1.1/dist/impor
 
 # Pin dependencies
 pin "@hotwired/stimulus", to: "https://unpkg.com/@hotwired/stimulus@3.2.2/dist/stimulus.js"
-pin "tippy.js", to: "https://unpkg.com/tippy.js@6.3.7/dist/esm/tippy.esm.js"
+pin "tippy.js", to: "https://unpkg.com/tippy.js@6.3.7/dist/tippy.esm.js"
 pin "@popperjs/core", to: "https://unpkg.com/@popperjs/core@2.11.8/dist/esm/index.js"
 pin "flatpickr", to: "https://unpkg.com/flatpickr@4.6.13/dist/esm/index.js"
 pin "hotkeys-js", to: "https://unpkg.com/hotkeys-js@3.13.15/dist/hotkeys.esm.js"
