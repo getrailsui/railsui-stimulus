@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/railsui_range.js"],
+  "sourcesContent": ["import { Controller } from '@hotwired/stimulus'\n\nexport default class extends Controller {\n  static targets = ['range']\n\n  connect() {\n    this.updateTrack() // Set initial track based on value\n  }\n\n  updateTrack() {\n    const value =\n      ((this.rangeTarget.value - this.rangeTarget.min) /\n        (this.rangeTarget.max - this.rangeTarget.min)) *\n      100\n    this.rangeTarget.style.setProperty('--range-fill', `${value}%`)\n  }\n\n  onInput() {\n    this.updateTrack() // Update track when input changes\n  }\n}\n"],
+  "mappings": ";;;;;;AAAA,SAAS,kBAAkB;AAE3B,MAAO,8BAAsB,WAAW;AAAA,EAGtC,UAAU;AACR,SAAK,YAAY;AAAA,EACnB;AAAA,EAEA,cAAc;AACZ,UAAM,SACF,KAAK,YAAY,QAAQ,KAAK,YAAY,QACzC,KAAK,YAAY,MAAM,KAAK,YAAY,OAC3C;AACF,SAAK,YAAY,MAAM,YAAY,gBAAgB,GAAG,KAAK,GAAG;AAAA,EAChE;AAAA,EAEA,UAAU;AACR,SAAK,YAAY;AAAA,EACnB;AACF;AAjBE,cADK,uBACE,WAAU,CAAC,OAAO;",
+  "names": []
+}

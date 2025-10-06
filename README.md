@@ -12,6 +12,94 @@ You'll need to install and configure [Stimulus.js](https://github.com/hotwired/s
 
 ## Installation
 
+### Option 1: Using importmaps (Recommended for Rails 7+)
+
+Rails 7+ ships with importmap-rails by default. This method doesn't require npm or a build step.
+
+📚 **[Complete Importmap Guide →](IMPORTMAP.md)** - Includes self-hosted setup, troubleshooting, and more.
+
+1. Pin the package and its dependencies:
+
+```bash
+./bin/importmap pin railsui-stimulus
+```
+
+2. Add the required dependencies to your `config/importmap.rb`:
+
+```ruby
+# config/importmap.rb
+pin "railsui-stimulus", to: "https://cdn.jsdelivr.net/npm/railsui-stimulus@1.0.11/dist/importmap/index.js"
+
+# Pin dependencies
+pin "@hotwired/stimulus", to: "https://ga.jspm.io/npm:@hotwired/stimulus@3.2.2/dist/stimulus.js"
+pin "tippy.js", to: "https://ga.jspm.io/npm:tippy.js@6.3.7/dist/tippy.esm.js"
+pin "flatpickr", to: "https://ga.jspm.io/npm:flatpickr@4.6.13/dist/esm/index.js"
+pin "hotkeys-js", to: "https://ga.jspm.io/npm:hotkeys-js@3.13.7/dist/hotkeys.esm.js"
+pin "stimulus-use", to: "https://ga.jspm.io/npm:stimulus-use@0.52.2/dist/index.js"
+```
+
+3. Add required CSS files to your `app/assets/stylesheets/application.css` or include via CDN:
+
+```css
+/* For Tooltip component */
+@import "https://unpkg.com/tippy.js@6.3.7/dist/tippy.css";
+
+/* For Date Range Picker component */
+@import "https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css";
+```
+
+Or in your layout file:
+
+```erb
+<%= stylesheet_link_tag "https://unpkg.com/tippy.js@6.3.7/dist/tippy.css" %>
+<%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css" %>
+```
+
+4. Import components in your JavaScript entrypoint (e.g., `app/javascript/controllers/index.js`):
+
+```javascript
+import { Application } from "@hotwired/stimulus"
+
+const application = Application.start()
+
+// Import components
+import {
+  RailsuiClipboard,
+  RailsuiCountUp,
+  RailsuiCombobox,
+  RailsuiDateRangePicker,
+  RailsuiDropdown,
+  RailsuiModal,
+  RailsuiPasswordToggle,
+  RailsuiRange,
+  RailsuiReadMore,
+  RailsuiSelectAll,
+  RailsuiTabs,
+  RailsuiToast,
+  RailsuiToggle,
+  RailsuiTooltip,
+} from "railsui-stimulus"
+
+application.register("railsui-clipboard", RailsuiClipboard)
+application.register("railsui-count-up", RailsuiCountUp)
+application.register("railsui-combobox", RailsuiCombobox)
+application.register("railsui-date-range-picker", RailsuiDateRangePicker)
+application.register("railsui-dropdown", RailsuiDropdown)
+application.register("railsui-modal", RailsuiModal)
+application.register("railsui-password-toggle", RailsuiPasswordToggle)
+application.register("railsui-range", RailsuiRange)
+application.register("railsui-read-more", RailsuiReadMore)
+application.register("railsui-select-all", RailsuiSelectAll)
+application.register("railsui-tabs", RailsuiTabs)
+application.register("railsui-toast", RailsuiToast)
+application.register("railsui-toggle", RailsuiToggle)
+application.register("railsui-tooltip", RailsuiTooltip)
+```
+
+### Option 2: Using npm/yarn/bun (For bundler-based projects)
+
+📚 **[NPM/Bundler Setup Guide →](BUILD.md)** - Detailed instructions for Vite, Webpack, esbuild, etc.
+
 Add the module `railsui-stimulus`
 
 ```bash
@@ -68,7 +156,14 @@ application.register('railsui-toggle', RailsuiToggle)
 application.register('railsui-tooltip', RailsuiTooltip)
 ```
 
-## Components
+## Documentation
+
+### Setup Guides
+- **[IMPORTMAP.md](IMPORTMAP.md)** - Complete importmap setup guide (Rails 7+)
+- **[BUILD.md](BUILD.md)** - NPM/bundler setup guide (Vite, Webpack, etc.)
+- **[PUBLISHING.md](PUBLISHING.md)** - How to publish and get on CDNs
+
+### Components
 
 - [Clipboard](docs/clipboard.md)
 - [Count up](docs/count_up.md)
