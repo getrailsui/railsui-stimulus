@@ -4,7 +4,15 @@
   "description": "Rails UI Stimulus.js Components",
   "main": "./dist/railsui-stimulus.cjs",
   "module": "./dist/railsui-stimulus.module.js",
-  "author": "Andy Leverenz <andy@justalever.com>",
+  "exports": {
+    ".": {
+      "import": "./dist/railsui-stimulus.module.js",
+      "require": "./dist/railsui-stimulus.cjs"
+    },
+    "./importmap": "./dist/importmap/index.js",
+    "./importmap/*": "./dist/importmap/*.js"
+  },
+  "author": "Andy Leverenz <info@railsui.com>",
   "homepage": "https://railsui.com",
   "keywords": [
     "stimulus",
@@ -24,16 +32,19 @@
   "bugs": "https://github.com/getrailsui/railsui-stimulus/issues",
   "scripts": {
     "dev": "esbuild src/index.js --format=esm  --bundle --outfile=dist/railsui-stimulus.module.js --watch",
-    "build": "bun run build-esm && bun run build-cjs",
+    "build": "bun run build-esm && bun run build-cjs && bun run build-importmap",
     "build-cjs": "esbuild src/index.js --format=cjs --target=es2020 --minify --bundle --sourcemap=external --external:@hotwired/stimulus --outfile=dist/railsui-stimulus.cjs",
-    "build-esm": "esbuild src/index.js --format=esm --target=es2020 --minify --bundle --sourcemap=external --external:@hotwired/stimulus --outfile=dist/railsui-stimulus.module.js"
+    "build-esm": "esbuild src/index.js --format=esm --target=es2020 --minify --bundle --sourcemap=external --external:@hotwired/stimulus --outfile=dist/railsui-stimulus.module.js",
+    "build-importmap": "node esbuild.importmap.js",
+    "test": "node test/build.test.js",
+    "test:ci": "bun run build && bun run test"
   },
   "license": "MIT",
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
-    "esbuild": "^0.20.0",
+    "esbuild": "^0.25.10",
     "flatpickr": "4.6.13",
-    "hotkeys-js": "^3.13.7",
+    "hotkeys-js": "^3.13.15",
     "stimulus-use": "^0.52.2",
     "tippy.js": "^6.3.7"
   },

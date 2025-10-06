@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/railsui_clipboard.js"],
+  "sourcesContent": ["import { Controller } from '@hotwired/stimulus'\nimport tippy from 'tippy.js'\n\nexport default class extends Controller {\n  static targets = ['content']\n\n  copy(event) {\n    event.preventDefault()\n    navigator.clipboard.writeText(this.textToCopy)\n    this.showFeedback(event.currentTarget, 'Copied!')\n  }\n\n  get textToCopy() {\n    const { value, innerText } = this.contentTarget\n    return value || innerText\n  }\n\n  showFeedback(element, message) {\n    tippy(element, {\n      content: message,\n      showOnCreate: true,\n      onHidden: instance => {\n        instance.destroy()\n      },\n    })\n  }\n}\n"],
+  "mappings": ";;;AAAA,SAAS,kBAAkB;AAC3B,OAAO,WAAW;AAElB,MAAO,kCAAsB,WAAW;AAAA,EAGtC,KAAK,OAAO;AACV,UAAM,eAAe;AACrB,cAAU,UAAU,UAAU,KAAK,UAAU;AAC7C,SAAK,aAAa,MAAM,eAAe,SAAS;AAAA,EAClD;AAAA,EAEA,IAAI,aAAa;AACf,UAAM,EAAE,OAAO,UAAU,IAAI,KAAK;AAClC,WAAO,SAAS;AAAA,EAClB;AAAA,EAEA,aAAa,SAAS,SAAS;AAC7B,UAAM,SAAS;AAAA,MACb,SAAS;AAAA,MACT,cAAc;AAAA,MACd,UAAU,cAAY;AACpB,iBAAS,QAAQ;AAAA,MACnB;AAAA,IACF,CAAC;AAAA,EACH;AACF;AAtBE,cADK,2BACE,WAAU,CAAC,SAAS;",
+  "names": []
+}

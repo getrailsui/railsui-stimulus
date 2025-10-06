@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/railsui_toast.js"],
+  "sourcesContent": ["import { Controller } from '@hotwired/stimulus'\nimport { useTransition } from 'stimulus-use'\n\nexport default class extends Controller {\n  static values = {\n    triggerOnLoad: { type: Boolean, default: false },\n  }\n\n  connect() {\n    useTransition(this, {\n      element: this.element,\n    })\n\n    // Trigger toggle\n    if (this.triggerOnLoadValue) {\n      this.toggleTransition()\n    }\n  }\n\n  toggle() {\n    this.toggleTransition()\n  }\n\n  hide() {\n    this.leave()\n  }\n\n  disconnect() {\n    this.leave()\n  }\n}\n"],
+  "mappings": ";;;AAAA,SAAS,kBAAkB;AAC3B,SAAS,qBAAqB;AAE9B,MAAO,8BAAsB,WAAW;AAAA,EAKtC,UAAU;AACR,kBAAc,MAAM;AAAA,MAClB,SAAS,KAAK;AAAA,IAChB,CAAC;AAGD,QAAI,KAAK,oBAAoB;AAC3B,WAAK,iBAAiB;AAAA,IACxB;AAAA,EACF;AAAA,EAEA,SAAS;AACP,SAAK,iBAAiB;AAAA,EACxB;AAAA,EAEA,OAAO;AACL,SAAK,MAAM;AAAA,EACb;AAAA,EAEA,aAAa;AACX,SAAK,MAAM;AAAA,EACb;AACF;AA1BE,cADK,uBACE,UAAS;AAAA,EACd,eAAe,EAAE,MAAM,SAAS,SAAS,MAAM;AACjD;",
+  "names": []
+}
