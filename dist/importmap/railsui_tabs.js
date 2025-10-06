@@ -1,16 +1,12 @@
 var __defProp = Object.defineProperty;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __publicField = (obj, key, value) => {
-  __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
-  return value;
-};
+var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
 import { Controller } from "@hotwired/stimulus";
 class railsui_tabs_default extends Controller {
   connect() {
     this.activeTabClasses = (this.data.get("activeTab") || "active").split(" ");
     this.inactiveTabClasses = (this.data.get("inactiveTab") || "inactive").split(" ");
-    if (this.anchor)
-      this.index = this.tabTargets.findIndex((tab) => tab.id === this.anchor);
+    if (this.anchor) this.index = this.tabTargets.findIndex((tab) => tab.id === this.anchor);
     this.showTab();
   }
   change(event) {

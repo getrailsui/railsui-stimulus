@@ -1,9 +1,6 @@
 var __defProp = Object.defineProperty;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __publicField = (obj, key, value) => {
-  __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
-  return value;
-};
+var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
 import { Controller } from "@hotwired/stimulus";
 import { useTransition } from "stimulus-use";
 class railsui_combobox_default extends Controller {
@@ -52,8 +49,7 @@ class railsui_combobox_default extends Controller {
       const text = option.textContent.toLowerCase();
       const isVisible = text.includes(searchTerm);
       option.style.display = isVisible ? "flex" : "none";
-      if (isVisible)
-        hasVisibleOptions = true;
+      if (isVisible) hasVisibleOptions = true;
     });
     if (this.hasNoresultsTarget) {
       this.noresultsTarget.classList.toggle("hidden", hasVisibleOptions);
@@ -92,12 +88,9 @@ class railsui_combobox_default extends Controller {
   }
   setActiveIndex(index) {
     const visibleOptions = this.getVisibleOptions();
-    if (visibleOptions.length === 0)
-      return;
-    if (index < 0)
-      index = visibleOptions.length - 1;
-    if (index >= visibleOptions.length)
-      index = 0;
+    if (visibleOptions.length === 0) return;
+    if (index < 0) index = visibleOptions.length - 1;
+    if (index >= visibleOptions.length) index = 0;
     this.activeIndex = index;
     this.updateActiveDescendant();
   }

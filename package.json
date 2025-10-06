@@ -12,7 +12,7 @@
     "./importmap": "./dist/importmap/index.js",
     "./importmap/*": "./dist/importmap/*.js"
   },
-  "author": "Andy Leverenz <andy@justalever.com>",
+  "author": "Andy Leverenz <info@railsui.com>",
   "homepage": "https://railsui.com",
   "keywords": [
     "stimulus",
@@ -42,9 +42,9 @@
   "license": "MIT",
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
-    "esbuild": "^0.20.0",
+    "esbuild": "^0.25.10",
     "flatpickr": "4.6.13",
-    "hotkeys-js": "^3.13.7",
+    "hotkeys-js": "^3.13.15",
     "stimulus-use": "^0.52.2",
     "tippy.js": "^6.3.7"
   },
