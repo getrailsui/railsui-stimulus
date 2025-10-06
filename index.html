@@ -20,23 +20,23 @@
     <script>hljs.highlightAll();</script>
 
     <!--
-      Importmap Configuration
+      Importmap Configuration (unpkg CDN)
 
-      This demo uses the UNBUNDLED importmap version of railsui-stimulus.
-      All dependencies are loaded separately via CDN.
+      This demo uses the importmap distribution from unpkg CDN.
+      This is the recommended setup for Rails 7+ applications.
 
-      For Rails apps, see IMPORTMAP.md for setup instructions.
+      For Rails importmap apps, see IMPORTMAP.md for setup instructions.
       For npm/bundler apps, see BUILD.md for setup instructions.
     -->
     <script type="importmap">
       {
         "imports": {
-          "@hotwired/stimulus": "https://ga.jspm.io/npm:@hotwired/stimulus@3.2.2/dist/stimulus.js",
-          "railsui-stimulus": "./dist/importmap/index.js",
-          "tippy.js": "https://ga.jspm.io/npm:tippy.js@6.3.7/dist/tippy.esm.js",
-          "flatpickr": "https://ga.jspm.io/npm:flatpickr@4.6.13/dist/esm/index.js",
-          "hotkeys-js": "https://ga.jspm.io/npm:hotkeys-js@3.13.15/dist/hotkeys.esm.js",
-          "stimulus-use": "https://ga.jspm.io/npm:stimulus-use@0.52.2/dist/index.js"
+          "@hotwired/stimulus": "https://unpkg.com/@hotwired/stimulus@3.2.2/dist/stimulus.js",
+          "railsui-stimulus": "https://unpkg.com/railsui-stimulus@1.1.0/dist/importmap/index.js",
+          "tippy.js": "https://unpkg.com/tippy.js@6.3.7/dist/tippy.esm.js",
+          "flatpickr": "https://unpkg.com/flatpickr@4.6.13/dist/esm/index.js",
+          "hotkeys-js": "https://unpkg.com/hotkeys-js@3.13.15/dist/hotkeys.esm.js",
+          "stimulus-use": "https://unpkg.com/stimulus-use@0.52.2/dist/index.js"
         }
       }
     </script>

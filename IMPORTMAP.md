@@ -8,14 +8,14 @@ This guide helps Rails developers set up railsui-stimulus with importmaps.
 
 ```ruby
 # Main package
-pin "railsui-stimulus", to: "https://cdn.jsdelivr.net/npm/railsui-stimulus@1.0.11/dist/importmap/index.js"
+pin "railsui-stimulus", to: "https://unpkg.com/railsui-stimulus@1.1.0/dist/importmap/index.js"
 
 # Required dependencies
-pin "@hotwired/stimulus", to: "https://ga.jspm.io/npm:@hotwired/stimulus@3.2.2/dist/stimulus.js"
-pin "tippy.js", to: "https://ga.jspm.io/npm:tippy.js@6.3.7/dist/tippy.esm.js"
-pin "flatpickr", to: "https://ga.jspm.io/npm:flatpickr@4.6.13/dist/esm/index.js"
-pin "hotkeys-js", to: "https://ga.jspm.io/npm:hotkeys-js@3.13.15/dist/hotkeys.esm.js"
-pin "stimulus-use", to: "https://ga.jspm.io/npm:stimulus-use@0.52.2/dist/index.js"
+pin "@hotwired/stimulus", to: "https://unpkg.com/@hotwired/stimulus@3.2.2/dist/stimulus.js"
+pin "tippy.js", to: "https://unpkg.com/tippy.js@6.3.7/dist/tippy.esm.js"
+pin "flatpickr", to: "https://unpkg.com/flatpickr@4.6.13/dist/esm/index.js"
+pin "hotkeys-js", to: "https://unpkg.com/hotkeys-js@3.13.15/dist/hotkeys.esm.js"
+pin "stimulus-use", to: "https://unpkg.com/stimulus-use@0.52.2/dist/index.js"
 ```
 
 ### 2. Add CSS dependencies
@@ -27,14 +27,14 @@ Add to your `app/assets/stylesheets/application.css`:
 @import "https://unpkg.com/tippy.js@6.3.7/dist/tippy.css";
 
 /* Required for Date Range Picker component */
-@import "https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css";
+@import "https://unpkg.com/flatpickr@4.6.13/dist/flatpickr.min.css";
 ```
 
 Or add to your layout file (`app/views/layouts/application.html.erb`):
 
 ```erb
 <%= stylesheet_link_tag "https://unpkg.com/tippy.js@6.3.7/dist/tippy.css", "data-turbo-track": "reload" %>
-<%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css", "data-turbo-track": "reload" %>
+<%= stylesheet_link_tag "https://unpkg.com/flatpickr@4.6.13/dist/flatpickr.min.css", "data-turbo-track": "reload" %>
 ```
 
 ### 3. Register components
@@ -106,11 +106,11 @@ pin "railsui-stimulus", to: "railsui-stimulus/index.js"
 pin_all_from "vendor/javascript/railsui-stimulus", under: "railsui-stimulus"
 
 # Dependencies (still need to be pinned)
-pin "@hotwired/stimulus", to: "https://ga.jspm.io/npm:@hotwired/stimulus@3.2.2/dist/stimulus.js"
-pin "tippy.js", to: "https://ga.jspm.io/npm:tippy.js@6.3.7/dist/tippy.esm.js"
-pin "flatpickr", to: "https://ga.jspm.io/npm:flatpickr@4.6.13/dist/esm/index.js"
-pin "hotkeys-js", to: "https://ga.jspm.io/npm:hotkeys-js@3.13.15/dist/hotkeys.esm.js"
-pin "stimulus-use", to: "https://ga.jspm.io/npm:stimulus-use@0.52.2/dist/index.js"
+pin "@hotwired/stimulus", to: "https://unpkg.com/@hotwired/stimulus@3.2.2/dist/stimulus.js"
+pin "tippy.js", to: "https://unpkg.com/tippy.js@6.3.7/dist/tippy.esm.js"
+pin "flatpickr", to: "https://unpkg.com/flatpickr@4.6.13/dist/esm/index.js"
+pin "hotkeys-js", to: "https://unpkg.com/hotkeys-js@3.13.15/dist/hotkeys.esm.js"
+pin "stimulus-use", to: "https://unpkg.com/stimulus-use@0.52.2/dist/index.js"
 ```
 
 ## Component-Specific CSS Notes
@@ -142,12 +142,12 @@ You can use different CDN providers if preferred:
 
 **jsDelivr:**
 ```ruby
-pin "railsui-stimulus", to: "https://cdn.jsdelivr.net/npm/railsui-stimulus@1.0.11/dist/importmap/index.js"
+pin "railsui-stimulus", to: "https://cdn.jsdelivr.net/npm/railsui-stimulus@1.1.0/dist/importmap/index.js"
 ```
 
-**unpkg:**
+**JSPM:**
 ```ruby
-pin "railsui-stimulus", to: "https://unpkg.com/railsui-stimulus@1.0.11/dist/importmap/index.js"
+pin "railsui-stimulus", to: "https://ga.jspm.io/npm:railsui-stimulus@1.1.0/dist/importmap/index.js"
 ```
 
 ## Need Help?
