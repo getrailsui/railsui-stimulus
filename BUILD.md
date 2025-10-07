@@ -391,7 +391,6 @@ if (process.env.NODE_ENV === 'production') {
 - Check out the [component documentation](docs/)
 - View live examples at https://getrailsui.github.io/railsui-stimulus/
 - For importmap setup, see [IMPORTMAP.md](IMPORTMAP.md)
-- For publishing your own builds, see [PUBLISHING.md](PUBLISHING.md)
 
 ## Need Help?
 
