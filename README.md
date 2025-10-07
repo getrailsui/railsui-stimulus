@@ -164,7 +164,6 @@ application.register('railsui-tooltip', RailsuiTooltip)
 ### Setup Guides
 - **[IMPORTMAP.md](IMPORTMAP.md)** - Complete importmap setup guide (Rails 7+)
 - **[BUILD.md](BUILD.md)** - NPM/bundler setup guide (Vite, Webpack, etc.)
-- **[PUBLISHING.md](PUBLISHING.md)** - How to publish and get on CDNs
 
 ### Components
 
