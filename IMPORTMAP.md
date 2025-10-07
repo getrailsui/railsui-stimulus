@@ -8,7 +8,7 @@ This guide helps Rails developers set up railsui-stimulus with importmaps.
 
 ```ruby
 # Main package
-pin "railsui-stimulus", to: "https://unpkg.com/railsui-stimulus@1.1.1/dist/importmap/index.js"
+pin "railsui-stimulus", to: "https://unpkg.com/railsui-stimulus@1.1.2/dist/importmap/index.js"
 
 # Required dependencies
 pin "@hotwired/stimulus", to: "https://unpkg.com/@hotwired/stimulus@3.2.2/dist/stimulus.js"
@@ -144,12 +144,12 @@ You can use different CDN providers if preferred:
 
 **jsDelivr:**
 ```ruby
-pin "railsui-stimulus", to: "https://cdn.jsdelivr.net/npm/railsui-stimulus@1.1.1/dist/importmap/index.js"
+pin "railsui-stimulus", to: "https://cdn.jsdelivr.net/npm/railsui-stimulus@1.1.2/dist/importmap/index.js"
 ```
 
 **JSPM:**
 ```ruby
-pin "railsui-stimulus", to: "https://ga.jspm.io/npm:railsui-stimulus@1.1.1/dist/importmap/index.js"
+pin "railsui-stimulus", to: "https://ga.jspm.io/npm:railsui-stimulus@1.1.2/dist/importmap/index.js"
 ```
 
 ## Need Help?
