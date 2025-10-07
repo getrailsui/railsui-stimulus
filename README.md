@@ -30,7 +30,7 @@ Rails 7+ ships with importmap-rails by default. This method doesn't require npm 
 
 ```ruby
 # config/importmap.rb
-pin "railsui-stimulus", to: "https://unpkg.com/railsui-stimulus@1.1.1/dist/importmap/index.js"
+pin "railsui-stimulus", to: "https://unpkg.com/railsui-stimulus@1.1.2/dist/importmap/index.js"
 
 # Pin dependencies
 pin "@hotwired/stimulus", to: "https://unpkg.com/@hotwired/stimulus@3.2.2/dist/stimulus.js"
